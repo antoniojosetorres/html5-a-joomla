@@ -1,13 +1,13 @@
 # Cómo Convertir una Plantilla HTML5 a Joomla!
 ---
-### Preparación
+### Preparación:
 - copiar carpeta `proyecto` dentro de `/templates`.
 - renombrar `/templates/proyecto/index.html` como `ìndex.php`.
 - crear `/templates/proyecto/index.html` vacío.
 - copiar `/templates/beez3/template_preview.png` y `template_thumbnail.png` en `/templates/proyecto`.
 - copiar `/templates/beez3/templateDetails.xml` en la carpeta `/templates/proyecto`.
 
-### Editar Fichero `/templates/proyecto/templateDetails.xml`
+### Editar Fichero `/templates/proyecto/templateDetails.xml`:
 - cambiar nombre de la carpeta `proyecto` en `<name>`: `<name>proyecto</name>`.
 - cambiar fecha de la plantilla en `<creationDate>`: `<creationDate>Febrero 2018</creationdate>`.
 - cambiar nombre del autor en `<author>`: `<author>Antonio Jose Torres</author>`.
@@ -20,11 +20,11 @@
 - cambiar ficheros de la plantilla en `<filename>`: `<filename>index.html</filename> ...`.
 - cambiar nombres de posiciones de módulos en `<position>`: `<position>menuprincipal</position>`.
 
-### Cmabiar Plamtilla en Joomla! (`/administrator/index.php`)
+### Cambiar Plantilla en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de extensiones / Descubrir_ para instalar la plantilla `proyecto`.
 - ir a _Extensiones / Gestor de plantillas_ para marcar como predeterminada la plantilla `proyecto`.
 
-### Editar Fichero `/templates/proyecto/index.php`
+### Editar Fichero `/templates/proyecto/index.php`:
 - añadir al comienzo una _línea de seguridad_: `<?php defined('_JEXEC') or die; ?>`.
 - borrar las líneas de `<title>` y `<meta name>`.
 - subir `<script>` de `jquery.js` delante de `</head>`.
@@ -35,7 +35,7 @@
 - añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`
 - añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`
 ---
-## Cambiar el logo en Joomla! como *Módulo* (`/administrator/index.php`)
+## Cambiar el Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para el logo.
 - pulsar botón _Nuevo_ y elegir la opción _HTML personalizado_.
 - escribir Título: `Logo`.
@@ -46,75 +46,75 @@
   - en _Formatting & Display / Container Element & Enter Key_: `No Container & Paragraph on Enter`.
   - en _Cleanup & Output / Validate HTML_: `No`.
 
-### Editar `/templates/proyecto/index.php`
+### Editar Fichero `/templates/proyecto/index.php`:
 - cambiar `<a href=”#” class=”logo”>` por `<a href=”<?php echo $ruta_s;?>” class=”logo”>`.
 - cambiar `<img src=”images/logo.png” alt=”logo”>` por `<jdoc:include type=”modules” name=”logo” style=”none” />`.
 
-### Duplicar módulo *mod_custom* para hacer override
-- crear carpeta `html` en `/templates/proyecto` para sobrescribir (override) la plantilla.
+### Duplicar Módulo *mod_custom* para Sobreescribirlo (Override):
+- crear carpeta `html` en `/templates/proyecto`.
 - copiar `/modules/mod_custom` en `/templates/proyecto/html`.
 - borrar `/templates/proyecto/html/mod_custom/mod_custom.php` y `mod_custom.xml`.
 - copiar `/templates/proyecto/html/mod_custom/tmpl/default.php` en `/templates/proyecto/html/mod_custom/proyecto.php`.
 - borrar la carpeta `/templates/proyecto/html/mod_custom/tmpl`.
 
-### Editar `/templates/proyecto/html/mod_custom/proyecto.php`
+### Editar Fichero `/templates/proyecto/html/mod_custom/proyecto.php`:
 - borrar `<div>` y `</div>` dejando `<?php echo $module->content;?>` para no insertar `<div class=”custom”>` en los módulos _HTML personalizado_.
 
-### Elegir módulo personalizado (override) en Joomla! (`/administrator/index.php`)
+### Elegir Módulo *mod_custom* Personalizado (override) en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de módulos_.
 - hacer click en el módulo _Logo_.
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / proyecto_.
 ---
-## Cambiar el logo como *Parámetro de Plantilla*
-- editar `/templates/proyecto/templateDetails.xml`:
+## Cambiar el Logo como *Parámetro de Plantilla*:
+### Editar Fichero `/templates/proyecto/templateDetails.xml`:
 - crear `<fieldset>` con el parámetro `opciones` y el campo `logo`:
-  `<fieldset name=”opciones” label=”Opciones de Plantilla”>`
-  `<field name=”logo” type=”media” label=”Logo” description=”Inserta tu logo” />`
-  `</fieldset>`
+    `<fieldset name=”opciones” label=”Opciones de Plantilla”>`
+      `<field name=”logo” type=”media” label=”Logo” description=”Inserta tu logo” />`
+    `</fieldset>`
 
-Editar `/templates/proyecto/index.php`:
-- añadir _variable de aplicación_ después de la variable `$ruta_p`: `$app=JFactory::getApplication();`
-- añadir _variable de parámetros_: `$params=$app->getParams();`.
-- añadir _variable de logo_: `$logo=$this->params->get('logo');`.
-- cambiar `<img src=”images/logo.png” alt=”logo”>` por `<img src=”<?php echo $logo;>” alt=”logo”>`.
+### Editar Fichero `/templates/proyecto/index.php`:
+- añadir _variable de aplicación_ `$app` después de la variable `$ruta_p`: `$app=JFactory::getApplication();`.
+- añadir _variable de parámetros_ `$params`: `$params=$app->getParams();`.
+- añadir _variable de logo_ `$logo`: `$logo=$this->params->get('logo');`.
 - cambiar `<a href=”#” class=”logo”>` por `<a href=”<?php echo $ruta_s;?>” class=”logo”>`.
-
-## Cambiar el número de teléfono como Parámetro de Plantilla.-
-Editar `/templates/proyecto/templateDetails.xml`:
+- cambiar `<img src=”images/logo.png” alt=”logo”>` por `<img src=”<?php echo $logo;>” alt=”logo”>`.
+---
+## Cambiar el Número de Teléfono como *Parámetro de Plantilla*:
+### Editar Fichero `/templates/proyecto/templateDetails.xml`:
 - añadir `<field>` con el campo `telefono` en `<fieldset name=”opciones”>`: `<field name=”telefono” type=”tel” label=”Teléfono” default=”658 621 946” description=”Inserta tu número de teléfono” />`
 
-Editar `/templates/proyecto/index.php`:
-- añadir _variable de telefono_: `$telefono=$this->params->get('telefono');`
-- cambiar `<a href=”tel:658 621 946” class=”telefono”>` por
-`<a href=”tel:<?php echo $telefono;?>” class=”telefono”>`
+### Editar Fichero `/templates/proyecto/index.php`:
+- añadir _variable de telefono_ `$telefono`: `$telefono=$this->params->get('telefono');`
+- cambiar `<a href=”tel:658 621 946” class=”telefono”>` por `<a href=”tel:<?php echo $telefono;?>” class=”telefono”>`
 
-## Agrupar Opciones en Backend de Plantilla.-
-Editar `/templates/proyecto/templateDetails.xml`:
+### Editar Fichero `/templates/proyecto/templateDetails.xml` para Agrupar Opciones de Plantilla en Backend:
 - añadir `<field>` con el campo `sep1` en `<fieldset name=”opciones”>`: `<field name=”sep1” type=”spacer” label=”Opciones de Encabezado” />`
-
-## Cambiar la caja de búsqueda como Módulo.-
-Entrar en Joomla! mediante `/administrator/index.php`:
+---
+## Cambiar la Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para la caja de búsqueda.
 - pulsar botón _Nuevo_ y elegir la opción _Buscar_.
 - escribir Título: `Caja de busqueda`.
 - elegir Posición: `buscar`.
 - escribir texto del campo: `Buscar...`.
 
-Editar `/templates/proyecto/index.php`:
+Editar Fichero `/templates/proyecto/index.php`:
 - cambiar `<form action=”index.html”><input type=”text” name=”buscar” placeholder=”Buscar…”></form>` por `<jdoc:include type=”modules” name=”buscar” style=”none” />`
 
-- Copiar `/modules/mod_search en /templates/proyecto/html`.
-- Borrar `/templates/proyecto/html/mod_search/mod_search.php`, `mod_search.xml` y `helper.php`.
-- Copiar `/templates/proyecto/html/mod_search/tmpl/default.php` en `/templates/proyecto/html/mod_search`.
-- Borrar la carpeta `/templates/proyecto/html/mod_search/tmpl`.
+### Duplicar Módulo *mod_search* para Sobreescribirlo (Override):
+- copiar `/modules/mod_search en /templates/proyecto/html`.
+- borrar `/templates/proyecto/html/mod_search/mod_search.php`, `mod_search.xml` y `helper.php`.
+- copiar `/templates/proyecto/html/mod_search/tmpl/default.php` en `/templates/proyecto/html/mod_search`.
+- renombrar `/templates/proyecto/html/mod_search` como proyecto.php
+- borrar la carpeta `/templates/proyecto/html/mod_search/tmpl`.
 
-Editar `/templates/proyecto/html/mod_search/default.php`:
+### Editar Fichero `/templates/proyecto/html/mod_search/proyecto.php`:
 - borrar `<div>` y `</div>` dejando `<form...>` para no insertar `<div class=”search”>` en los módulos _Buscar_.
 - borrar `<label>` y `</label>` dejando `<form...>` para que no aparezca la palabra _Buscar_ delante de la caja de búsqueda.
 
-Entrar en Joomla! mediante `/administrator/index.php`:
+### Elegir Módulo *mod_search* Personalizado (override) en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de módulos_.
 - hacer click en el módulo _Caja de busqueda_.
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / proyecto_.
+---
