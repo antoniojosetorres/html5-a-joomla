@@ -98,7 +98,7 @@
 - elegir Posición: `buscar`.
 - escribir texto del campo: `Buscar...`.
 
-Editar Fichero `/templates/proyecto/index.php`:
+### Editar Fichero `/templates/proyecto/index.php`:
 - cambiar `<form action=”index.html”><input type=”text” name=”buscar” placeholder=”Buscar…”></form>` por `<jdoc:include type=”modules” name=”buscar” style=”none” />`
 
 ### Duplicar Módulo *mod_search* para Sobreescribirlo (Override):
