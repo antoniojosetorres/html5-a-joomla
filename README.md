@@ -1,33 +1,30 @@
 # Cómo Convertir una Plantilla HTML5 a Joomla!
 ---
-## Preparación.-
-- Copiar carpeta `proyecto` dentro de `/templates`.
-- Renombrar `/templates/proyecto/index.html` como `ìndex.php`.
-- Crear `/templates/proyecto/index.html` vacío.
-- Copiar `/templates/beez3/template_preview.png` y `template_thumbnail.png` en `/templates/proyecto`.
-- Copiar `/templates/beez3/templateDetails.xml` en la carpeta `/templates/proyecto`.
+### Preparación
+- copiar carpeta `proyecto` dentro de `/templates`.
+- renombrar `/templates/proyecto/index.html` como `ìndex.php`.
+- crear `/templates/proyecto/index.html` vacío.
+- copiar `/templates/beez3/template_preview.png` y `template_thumbnail.png` en `/templates/proyecto`.
+- copiar `/templates/beez3/templateDetails.xml` en la carpeta `/templates/proyecto`.
 
-## Fichero `templateDetails.xml`.-
-Editar `/templates/proyecto/templateDetails.xml` y cambiar:
-- nombre de la carpeta `proyecto` en `<name>`: `<name>proyecto</name>`.
-- fecha de la plantilla en `<creationDate>`: `<creationDate>Febrero 2018</creationdate>`.
-- nombre del autor en `<author>`: `<author>Antonio Jose Torres</author>`.
-- email del autor en `<authorEmail>`: `<authorEmail>antoniojosetorres@gmail.com</authorEmail>`.
-- web del autor en `<authorUrl>`: `<authorUrl>http://antoniojosetorres.es</authorUrl>`.
-- datos del copyright en `<copyright>`: `<copyright>Copyright (C) 2018 antoniojosetorres. All rights reserved.</copyright>`.
-- número de versión en `<version>`: `<version>1.0</version>`.
-- descripción de la plantilla en `<description>`: `<description>Plantilla para Proyecto</description>`.
-- carpetas de la plantilla en `<folder>`: `<folder>css</folder> ...`.
-- ficheros de la plantilla en `<filename>`: `<filename>index.html</filename> ...`.
-- nombres de posiciones de módulos en `<position>`: `<position>menuprincipal</position>`.
+### Editar Fichero `/templates/proyecto/templateDetails.xml`
+- cambiar nombre de la carpeta `proyecto` en `<name>`: `<name>proyecto</name>`.
+- cambiar fecha de la plantilla en `<creationDate>`: `<creationDate>Febrero 2018</creationdate>`.
+- cambiar nombre del autor en `<author>`: `<author>Antonio Jose Torres</author>`.
+- cambiar email del autor en `<authorEmail>`: `<authorEmail>antoniojosetorres@gmail.com</authorEmail>`.
+- cambiar web del autor en `<authorUrl>`: `<authorUrl>http://antoniojosetorres.es</authorUrl>`.
+- cambiar datos del copyright en `<copyright>`: `<copyright>Copyright (C) 2018 antoniojosetorres. All rights reserved.</copyright>`.
+- cambiar número de versión en `<version>`: `<version>1.0</version>`.
+- cambiar descripción de la plantilla en `<description>`: `<description>Plantilla para Proyecto</description>`.
+- cambiar carpetas de la plantilla en `<folder>`: `<folder>css</folder> ...`.
+- cambiar ficheros de la plantilla en `<filename>`: `<filename>index.html</filename> ...`.
+- cambiar nombres de posiciones de módulos en `<position>`: `<position>menuprincipal</position>`.
 
-## Plamtilla en Joomla!.-
-Entrar en Joomla! (`/administrator/index.php`):
+### Cmabiar Plamtilla en Joomla! (`/administrator/index.php`)
 - ir a _Extensiones / Gestor de extensiones / Descubrir_ para instalar la plantilla `proyecto`.
 - ir a _Extensiones / Gestor de plantillas_ para marcar como predeterminada la plantilla `proyecto`.
 
-## Fichero `index.php`.-
-Editar `/templates/proyecto/index.php` y:
+### Editar Fichero `/templates/proyecto/index.php`
 - añadir al comienzo una _línea de seguridad_: `<?php defined('_JEXEC') or die; ?>`.
 - borrar las líneas de `<title>` y `<meta name>`.
 - subir `<script>` de `jquery.js` delante de `</head>`.
@@ -37,9 +34,8 @@ Editar `/templates/proyecto/index.php` y:
 - añadir _variable de ruta de plantilla_ `$rupa_p`: `$ruta_p=$ruta_s.”templates/”.$this->template.”/”;`
 - añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`
 - añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`
-
-## Cambiar el logo como Módulo.-
-Entrar en Joomla! (`/administrator/index.php`):
+---
+## Cambiar el logo en Joomla! como *Módulo* (`/administrator/index.php`)
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para el logo.
 - pulsar botón _Nuevo_ y elegir la opción _HTML personalizado_.
 - escribir Título: `Logo`.
@@ -50,27 +46,28 @@ Entrar en Joomla! (`/administrator/index.php`):
   - en _Formatting & Display / Container Element & Enter Key_: `No Container & Paragraph on Enter`.
   - en _Cleanup & Output / Validate HTML_: `No`.
 
-Editar `/templates/proyecto/index.php`:
-- cambiar `<img src=”images/logo.png” alt=”logo”>` por `<jdoc:include type=”modules” name=”logo” style=”none” />`.
+### Editar `/templates/proyecto/index.php`
 - cambiar `<a href=”#” class=”logo”>` por `<a href=”<?php echo $ruta_s;?>” class=”logo”>`.
+- cambiar `<img src=”images/logo.png” alt=”logo”>` por `<jdoc:include type=”modules” name=”logo” style=”none” />`.
 
-- Crear carpeta `html` en `/templates/proyecto` para sobrescribir (override) la plantilla.
-- Copiar `/modules/mod_custom` en `/templates/proyecto/html`.
-- Borrar `/templates/proyecto/html/mod_custom/mod_custom.php` y `mod_custom.xml`.
-- Copiar `/templates/proyecto/html/mod_custom/tmpl/default.php` en `/templates/proyecto/html/mod_custom/proyecto.php`.
-- Borrar la carpeta `/templates/proyecto/html/mod_custom/tmpl`.
+### Duplicar módulo *mod_custom* para hacer override
+- crear carpeta `html` en `/templates/proyecto` para sobrescribir (override) la plantilla.
+- copiar `/modules/mod_custom` en `/templates/proyecto/html`.
+- borrar `/templates/proyecto/html/mod_custom/mod_custom.php` y `mod_custom.xml`.
+- copiar `/templates/proyecto/html/mod_custom/tmpl/default.php` en `/templates/proyecto/html/mod_custom/proyecto.php`.
+- borrar la carpeta `/templates/proyecto/html/mod_custom/tmpl`.
 
-Editar `/templates/proyecto/html/mod_custom/proyecto.php`:
+### Editar `/templates/proyecto/html/mod_custom/proyecto.php`
 - borrar `<div>` y `</div>` dejando `<?php echo $module->content;?>` para no insertar `<div class=”custom”>` en los módulos _HTML personalizado_.
 
-Entrar en Joomla! (`/administrator/index.php`):
+### Elegir módulo personalizado (override) en Joomla! (`/administrator/index.php`)
 - ir a _Extensiones / Gestor de módulos_.
 - hacer click en el módulo _Logo_.
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / proyecto_.
-
-## Cambiar el logo como Parámetro de Plantilla.-
-Editar `/templates/proyecto/templateDetails.xml`:
+---
+## Cambiar el logo como *Parámetro de Plantilla*
+- editar `/templates/proyecto/templateDetails.xml`:
 - crear `<fieldset>` con el parámetro `opciones` y el campo `logo`:
   `<fieldset name=”opciones” label=”Opciones de Plantilla”>`
   `<field name=”logo” type=”media” label=”Logo” description=”Inserta tu logo” />`
