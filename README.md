@@ -31,7 +31,7 @@
 - subir `<script>` de `modenizr.js` delante de `</head>`.
 - añadir `<jdoc:include type=”head” />`.
 - añadir _variable de ruta de sitio_ `$ruta_s` antes de `?>`: `$ruta_s=JURI::base();`
-- añadir _variable de ruta de plantilla_ `$rupa_p`: `$ruta_p=$ruta_s.”templates/”.$this->template.”/”;`
+- añadir _variable de ruta de plantilla_ `$ruta_p`: `$ruta_p=$ruta_s.”templates/”.$this->template.”/”;`
 - añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`
 - añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`
 ---
