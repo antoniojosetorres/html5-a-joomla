@@ -1,5 +1,5 @@
 # Cómo Convertir una Plantilla HTML5 a Joomla!
----
+
 ### Preparación:
 - copiar carpeta `proyecto` dentro de `/templates`.
 - renombrar `/templates/proyecto/index.html` como `ìndex.php`.
