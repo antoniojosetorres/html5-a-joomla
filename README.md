@@ -118,7 +118,7 @@
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / proyecto_.
 ---
-## Cambiar las Direcciones de los Enlaces a redes Sociales como *Parámetros de Plantilla*:
+## Cambiar las Direcciones de los Enlaces a Redes Sociales como *Parámetros de Plantilla*:
 ### Editar Fichero `/templates/proyecto/templateDetails.xml`:
 - añadir `<field>` con el campo `google` en `<fieldset name=”opciones”>`: `<field name=”google” type=”url” label=”Google+” default=”https://plus.google.com” description=”Inserta tu dirección de Google+” />`
 - añadir `<field>` con el campo `twitter` en `<fieldset name=”opciones”>`: `<field name=”twitter” type=”url” label=”Twitter” default=”https://twitter.com” description=”Inserta tu dirección de Twitter” />`
@@ -126,9 +126,9 @@
 
 ### Editar Fichero `/templates/proyecto/index.php`:
 - añadir _variable para google_ `$google`: `$google=$this->params->get('google');`
-- cambiar `<a href=”#” class=”fa fa-google-plus”>` por `<a href=”<?php echo $google;?>” class=”fa fa-google-plus”>`
 - añadir _variable para twitter_ `$twitter`: `$twitter=$this->params->get('twitter');`
-- cambiar `<a href=”#” class=”fa fa-twitter”>` por `<a href=”<?php echo $twitter;?>” class=”fa fa-twitter”>`
 - añadir _variable para facebook_ `$facebook`: `$facebook=$this->params->get('facebook');`
+- cambiar `<a href=”#” class=”fa fa-google-plus”>` por `<a href=”<?php echo $google;?>” class=”fa fa-google-plus”>`
+- cambiar `<a href=”#” class=”fa fa-twitter”>` por `<a href=”<?php echo $twitter;?>” class=”fa fa-twitter”>`
 - cambiar `<a href=”#” class=”fa fa-facebook”>` por `<a href=”<?php echo $telefono;?>” class=”fa fa-facebook”>`
 ---
