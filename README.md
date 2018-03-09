@@ -16,7 +16,11 @@
 - cambiar datos del copyright en `<copyright>`: `<copyright>2018 antoniojosetorres.</copyright>`.
 - cambiar número de versión en `<version>`: `<version>1.0</version>`.
 - cambiar descripción de la plantilla en `<description>`: `<description>Plantilla para Restaurante</description>`.
-- cambiar carpetas de la plantilla en `<folder>`: `<folder>css</folder> ...`.
+- cambiar carpetas de la plantilla en `<folder>`:  
+  `<folder>css</folder>`
+  `<folder>fonts</folder>`
+  `<folder>images</folder>`
+  `<folder>js</folder>`
 - cambiar ficheros de la plantilla en `<filename>`:  
   `<filename>index.html</filename>`  
   `<filename>index.php</filename>`  
