@@ -132,3 +132,7 @@
 - cambiar `<a href=”#” class=”fa fa-twitter”>` por `<a href=”<?php echo $twitter;?>” class=”fa fa-twitter”>`
 - cambiar `<a href=”#” class=”fa fa-facebook”>` por `<a href=”<?php echo $telefono;?>” class=”fa fa-facebook”>`
 ---
+## Cambiar el Menú en Joomla! (`/administrator/index.php`) como *Módulo*:
+- crear una categoría nueva `Opciones`.
+- crear un artículo nuevo en la categoría `Opciones` por cada opcion de menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos`
+
