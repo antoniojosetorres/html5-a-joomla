@@ -29,10 +29,10 @@
   ````
 - cambiar en el bloque `<files>..</files>` las carpetas de la plantilla:
   ````xml
-	<folder>css</folder>
-	<folder>fonts</folder>
-	<folder>images</folder>
-	<folder>js</folder>
+  <folder>css</folder>
+  <folder>fonts</folder>
+  <folder>images</folder>
+  <folder>js</folder>
   ````
 - cambiar en el bloque `<files>..</files>` los ficheros de la plantilla:  
   ````xml
@@ -56,29 +56,47 @@
 - ir a _Extensiones / Gestor de plantillas_ para marcar como predeterminada la plantilla `restaurante`.
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- añadir al comienzo una _línea de seguridad_: `<?php defined('_JEXEC') or die; ?>`.
-- borrar las líneas de `<title>` y `<meta name>`.
-- subir `<script>` de `jquery.js` delante de `</head>`.
-- subir `<script>` de `modenizr.js` delante de `</head>`.
-- añadir `<jdoc:include type=”head” />`.
-- añadir _variable de ruta de sitio_ `$ruta_s` antes de `?>`: `$ruta_s=JURI::base();`
-- añadir _variable de ruta de plantilla_ `$ruta_p`: `$ruta_p=$ruta_s.”templates/”.$this->template.”/”;`
-- añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`
-- añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`
+- añadir al comienzo una _línea de seguridad_:
+  ````php
+  <?php defined('_JEXEC') or die; ?>
+  ````
+- borrar `<title>Restaurante Maestro</title>` (será generada por Joomla!).
+- borrar `<meta name=”description” content=””>` (será generada por Joomla!).
+- poner `<script src=”js/jquery-2.1.1.min.js”></script>` delante de `</head>`.
+- poner `<script src=”js/modernizr-2.6.2-respond-1.1.0.min.js”></script>` delante de `</head>`.
+- añadir `<jdoc:include type=”head” />` entre `<script>` y `<link>`.
+- añadir _variable de ruta de sitio_ `$ruta_s` delante de `?>`:
+  ````php
+  $ruta_s=JURI::base();
+  ````
+- añadir _variable de ruta de plantilla_ `$ruta_p`:
+  ````php
+  $ruta_p=$ruta_s.”templates/”.$this->template.”/”;
+  ````
+- añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`.
+- añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`.
 ---
 ## Cambiar Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para el logo.
 - pulsar botón _Nuevo_ y elegir la opción _HTML personalizado_.
   - escribir Título: `Logo`.
   - elegir Posición: `logo`.
-  - insertar la imagen `logo.png` con _JCE Editor_: `<img src=”images/logo.png” alt=”logo”>`
+  - insertar la imagen `logo.png` con _JCE Editor_:
+    ````html
+    <img src=”images/logo.png” alt=”logo”>
+    ````
 - comprobar la configuración de _JCE Editor_:
   - ir a _Componentes / JCE Editor / Global Configuration_.
   - en _Formatting & Display / Container Element & Enter Key_: `No Container & Paragraph on Enter`.
   - en _Cleanup & Output / Validate HTML_: `No`.
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- cambiar `<a href=”#” class=”logo”>` por `<a href=”<?php echo $ruta_s;?>” class=”logo”>`.
+- cambiar:
+  ````php
+  <a href=”#” class=”logo”>
+  <!-- por -->
+  <a href=”<?php echo $ruta_s;?>” class=”logo”>
+  ````
 - cambiar `<img src=”images/logo.png” alt=”logo”>` por `<jdoc:include type=”modules” name=”logo” style=”none” />`.
 
 ### Duplicar Módulo *mod_custom* para Sobreescribirlo (Override):
