@@ -146,7 +146,7 @@
 - cambiar `<a href=”#” class=”fa fa-twitter”>` por `<a href=”<?php echo $twitter;?>” class=”fa fa-twitter”>`
 - cambiar `<a href=”#” class=”fa fa-facebook”>` por `<a href=”<?php echo $telefono;?>” class=”fa fa-facebook”>`
 ---
-## Cambiar el Menú en Joomla! (`/administrator/index.php`) como *Módulo*:
+## Cambiar el Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Contenido / Gestor de categorias / Añadir nueva categoría_ y crear una categoría `Nosotros`.
 - ir a _Artículos_ y crear tantos artículos nuevos en esa categoría como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
 - ir a _Menús / Main Menu_ y crear tantos elementos de menú del tipo `Artículos > Mostrar un solo artículo` como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
@@ -157,4 +157,11 @@
 ### Editar fichero `/templates/restaurante/index.php`:
 - cambiar el bloque `<ul>...</ul>` por `<jdoc:include type="modules" name="menuprincipal" style="none" />`.
 
+### Editar fichero `/templates/restaurante/css/estilos.css`:
+- cambiar la línea `nav.menu-principal ul li a:hover` por `nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a` para que cambie de color la opción de menú seleccionada.
+---
+### Adaptar la Imagen de Presentación usando el Componente _Layer Slider_:
+## Editar Fichero `/templates/restaurante/index.php`:
+- borrar `<script src="<?php echo $ruta_p;?>js/responsive-img.min.js"></script>`.
+- cambiar `<div class="texto-presentacion>...</div>` y `<div class="images-presentacion>...</div>` por `<jdoc:include type="modules" name="presentacion" style="none" />`
 
