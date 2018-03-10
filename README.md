@@ -295,9 +295,11 @@
 ### Editar Fichero `/templates/restaurante/css/estilos.css`:
 - cambiar para modificar el color de la opción de menú seleccionada:
   ````css
-  nav.menu-principal ul li a:hover
-  // por
-  nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a
+  nav.menu-principal ul li a:hover {
+  ````
+  por
+  ````css
+  nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a {
   ````
 ---
 ### Cambiar Sección Bienvenido como *Parámetro de Plantilla*:
