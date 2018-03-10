@@ -134,6 +134,7 @@
 ---
 ## Cambiar las Direcciones de los Enlaces a Redes Sociales como *Parámetros de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
+- añadir `<field>` con el campo `sep2` en `<fieldset name=”opciones”>`: `<field name=”sep2” type=”spacer” label=”Opciones de Redes Sociales” />`
 - añadir `<field>` con el campo `google` en `<fieldset name=”opciones”>`: `<field name=”google” type=”url” label=”Google+” default=”https://plus.google.com” description=”Inserta tu dirección de Google+” />`
 - añadir `<field>` con el campo `twitter` en `<fieldset name=”opciones”>`: `<field name=”twitter” type=”url” label=”Twitter” default=”https://twitter.com” description=”Inserta tu dirección de Twitter” />`
 - añadir `<field>` con el campo `facebook` en `<fieldset name=”opciones”>`: `<field name=”facebook” type=”url” label=”Facebook” default=”https://www.facebook.com” description=”Inserta tu dirección de Facebook” />`
@@ -160,8 +161,6 @@
 ### Editar fichero `/templates/restaurante/css/estilos.css`:
 - cambiar la línea `nav.menu-principal ul li a:hover` por `nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a` para que cambie de color la opción de menú seleccionada.
 ---
-### Adaptar la Imagen de Presentación usando el Componente _Layer Slider_:
-## Editar Fichero `/templates/restaurante/index.php`:
-- borrar `<script src="<?php echo $ruta_p;?>js/responsive-img.min.js"></script>`.
-- cambiar `<div class="texto-presentacion>...</div>` y `<div class="images-presentacion>...</div>` por `<jdoc:include type="modules" name="presentacion" style="none" />`
-
+### Cambiar la Sección Bienvenido como *Parámetro de Plantilla*:
+### Editar Fichero `/templates/restaurante/templateDetails.xml`:
+- añadir `<field>` con el campo `sep3` en `<fieldset name=”opciones”>`: `<field name=”sep3” type=”spacer” label=”Opciones de Sección Bienvenido” />`
