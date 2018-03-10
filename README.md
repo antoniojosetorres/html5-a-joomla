@@ -49,7 +49,7 @@
 - añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`
 - añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`
 ---
-## Cambiar el Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
+## Cambiar Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para el logo.
 - pulsar botón _Nuevo_ y elegir la opción _HTML personalizado_.
   - escribir Título: `Logo`.
@@ -80,7 +80,7 @@
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / restaurante_.
 ---
-## Cambiar el Logo como *Parámetro de Plantilla*:
+## Cambiar Logo como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - crear `<fieldset>` con el parámetro `opciones` y el campo `logo`:
     `<fieldset name=”opciones” label=”Opciones de Plantilla”>`
@@ -94,7 +94,7 @@
 - cambiar `<a href=”#” class=”logo”>` por `<a href=”<?php echo $ruta_s;?>” class=”logo”>`.
 - cambiar `<img src=”images/logo.png” alt=”logo”>` por `<img src=”<?php echo $logo;>” alt=”logo”>`.
 ---
-## Cambiar el Número de Teléfono como *Parámetro de Plantilla*:
+## Cambiar Número de Teléfono como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `telefono` en `<fieldset name=”opciones”>`: `<field name=”telefono” type=”tel” label=”Teléfono” default=”658 621 946” description=”Inserta tu número de teléfono” />`
 
@@ -105,7 +105,7 @@
 ### Editar Fichero `/templates/restaurante/templateDetails.xml` para Agrupar Opciones de Plantilla en Backend:
 - añadir `<field>` con el campo `sep1` en `<fieldset name=”opciones”>`: `<field name=”sep1” type=”spacer” label=”Opciones de Encabezado” />`
 ---
-## Cambiar la Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
+## Cambiar Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para la caja de búsqueda.
 - pulsar botón _Nuevo_ y elegir la opción _Buscar_.
 - escribir Título: `Caja de busqueda`.
@@ -132,7 +132,7 @@
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / restaurante_.
 ---
-## Cambiar las Direcciones de los Enlaces a Redes Sociales como *Parámetros de Plantilla*:
+## Cambiar Direcciones de Enlaces a Redes Sociales como *Parámetros de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep2` en `<fieldset name=”opciones”>`: `<field name=”sep2” type=”spacer” label=”Opciones de Redes Sociales” />`
 - añadir `<field>` con el campo `google` en `<fieldset name=”opciones”>`: `<field name=”google” type=”url” label=”Google+” default=”https://plus.google.com” description=”Inserta tu dirección de Google+” />`
@@ -147,7 +147,7 @@
 - cambiar `<a href=”#” class=”fa fa-twitter”>` por `<a href=”<?php echo $twitter;?>” class=”fa fa-twitter”>`
 - cambiar `<a href=”#” class=”fa fa-facebook”>` por `<a href=”<?php echo $telefono;?>” class=”fa fa-facebook”>`
 ---
-## Cambiar el Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
+## Cambiar Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Contenido / Gestor de categorias / Añadir nueva categoría_ y crear una categoría `Nosotros`.
 - ir a _Artículos_ y crear tantos artículos nuevos en esa categoría como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
 - ir a _Menús / Main Menu_ y crear tantos elementos de menú del tipo `Artículos > Mostrar un solo artículo` como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
@@ -155,13 +155,31 @@
   - escribir Título: `Menu Principal`.
   - elegir Posición: `menuprincipal`.
 
-### Editar fichero `/templates/restaurante/index.php`:
+### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar el bloque `<ul>...</ul>` por `<jdoc:include type=”modules” name=”menuprincipal” style=”none” />`.
 
-### Editar fichero `/templates/restaurante/css/estilos.css`:
+### Editar Fichero `/templates/restaurante/css/estilos.css`:
 - cambiar la línea `nav.menu-principal ul li a:hover` por `nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a` para que cambie de color la opción de menú seleccionada.
 ---
-### Cambiar la Sección Bienvenido como *Parámetro de Plantilla*:
+### Cambiar Sección Bienvenido como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep3` en `<fieldset name=”opciones”>`: `<field name=”sep3” type=”spacer” label=”Opciones de Bienvenido” />`.
-- añadir `<field>` con el campo `bienvenido` en `<fieldset name=”opciones”>`: `<field name=”bienvenido” type=”textarea” label=”Contenido de Bienvenido” filter=”safehtml” />`.
+- añadir `<field>` con el campo `bienvenido` en `<fieldset name=”opciones”>`: `<field name=”bienvenido” type=”editor” label=”Contenido de Bienvenido” filter=”safehtml” />`.
+
+### Editar Fichero `/templates/restaurante/index.php`:
+- por:
+````php
+<h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
+<p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
+<div class="bloque-bienvenidos">
+<figure><a href="#"> <img src="images/horario-atencion.png" alt="HORARIOS DE ATENCIÓN" />
+<h3>HORARIOS DE ATENCIÓN</h3>
+</a> <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption></figure>
+<figure><a href="#"> <img src="images/nuestra-carta.png" alt="NUESTRA CARTA" />
+<h3>NUESTRA CARTA</h3>
+</a> <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption></figure>
+<figure><a href="#"> <img src="images/nuestros-locales.png" alt="NUESTROS LOCALES" />
+<h3>NUESTROS LOCALES</h3>
+</a> <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption></figure>
+</div>
+````
