@@ -96,17 +96,17 @@
   <a href="#" class="logo">
   ````
   por:
-  ````php
-  <a href="<?php echo $ruta_s; ?>" class="logo">
-  ````
+    ````php
+    <a href="<?php echo $ruta_s; ?>" class="logo">
+    ````
 - cambiar:
   ````php
   <img src="images/logo.png" alt="logo">
   ````
   por:
-  ````php
-  <jdoc:include type="modules" name="logo" style="none" />
-  ````
+    ````php
+    <jdoc:include type="modules" name="logo" style="none" />
+    ````
 
 ### Duplicar Módulo *mod_custom* para Sobreescribirlo (Override):
 - crear carpeta `html` en `/templates/restaurante`.
@@ -335,7 +335,7 @@
 
 ### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar:
-````php
+  ````php
   <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
   <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
   <div class="bloque-bienvenidos">
