@@ -94,13 +94,17 @@
 - cambiar:
   ````php
   <a href="#" class="logo">
-  <!-- por -->
+  ````
+  por:
+  ````php
   <a href="<?php echo $ruta_s; ?>" class="logo">
   ````
 - cambiar:
   ````php
   <img src="images/logo.png" alt="logo">
-  <!-- por -->
+  ````
+  por:
+  ````php
   <jdoc:include type="modules" name="logo" style="none" />
   ````
 
@@ -145,13 +149,17 @@
 - cambiar:
   ````php
   <a href="#" class="logo">
-  <!-- por -->
+  ````
+  por:
+  ````php
   <a href="<?php echo $ruta_s;?>" class="logo">
   ````
 - cambiar:
   ````php
   <img src="images/logo.png" alt="logo">
-  <!-- por -->
+  ````
+  por:
+  ````php
   <img src="<?php echo $logo;>" alt="logo">
   ````
 ---
@@ -170,7 +178,9 @@
 - cambiar:
   ````php
   <a href="tel:666 123 456" class="telefono">
-  <!-- por -->
+  ````
+  por:
+  ````php
   <a href="tel:<?php echo $telefono;?>" class="telefono">
   ````
 
@@ -193,7 +203,9 @@
   <form action="index.html">
     <input type="text" name="buscar" placeholder="Buscar…">
   </form>
-  <!-- por -->
+  ````
+  por:
+  ````php
   <jdoc:include type="modules" name="buscar" style="none" />
   ````
 
@@ -252,19 +264,25 @@
 - cambiar:
   ````php
   <a href="#" class="fa fa-google-plus">
-  <!-- por -->
+  ````
+  por:
+  ````php
   <a href="<?php echo $google;?>" class="fa fa-google-plus">
   ````
 - cambiar:
   ````php
   <a href="#" class="fa fa-twitter">
-  <!-- por -->
+  ````
+  por:
+  ````php
   <a href="<?php echo $twitter;?>" class="fa fa-twitter">
   ````
 - cambiar:
   ````php
   <a href="#" class="fa fa-facebook">
-  <!-- por -->
+  ````
+  por:
+  ````php
   <a href="<?php echo $telefono;?>" class="fa fa-facebook">
   ````
 ---
@@ -288,7 +306,9 @@
     <li><a href="#">Contáctanos</a></li>
     <li><a href="#">Blog</a></li>
   </ul>
-  <!-- por -->
+  ````
+  por:
+  ````php
   <jdoc:include type="modules" name="menuprincipal" style="none" />
   ````
 
@@ -341,8 +361,5 @@
       <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption>
     </figure>
   </div>
-  
-  <!-- por -->
-  
-  
-````
+  ````
+  por:
