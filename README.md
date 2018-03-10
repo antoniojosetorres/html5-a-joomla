@@ -10,7 +10,10 @@
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - cambiar nombre de la carpeta `restaurante` en `<name>`:
   ````xml
+  <!-- nombre de la carpeta -->
   <name>restaurante</name>
+  <!-- fecha de la plantilla -->
+  <creationDate>Marzo 2018</creationdate>
   ````
 - cambiar fecha de la plantilla en `<creationDate>`: `<creationDate>Marzo 2018</creationdate>`.
 - cambiar nombre del autor en `<author>`: `<author>Antonio Jose Torres</author>`.
