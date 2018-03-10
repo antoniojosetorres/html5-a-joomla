@@ -95,9 +95,14 @@
   ````php
   <a href=”#” class=”logo”>
   <!-- por -->
-  <a href=”<?php echo $ruta_s;?>” class=”logo”>
+  <a href=”<?php echo $ruta_s; ?>” class=”logo”>
   ````
-- cambiar `<img src=”images/logo.png” alt=”logo”>` por `<jdoc:include type=”modules” name=”logo” style=”none” />`.
+- cambiar:
+  ````php
+  <img src=”images/logo.png” alt=”logo”>
+  <!-- por -->
+  <jdoc:include type=”modules” name=”logo” style=”none” />
+  ````
 
 ### Duplicar Módulo *mod_custom* para Sobreescribirlo (Override):
 - crear carpeta `html` en `/templates/restaurante`.
