@@ -156,11 +156,12 @@
   - elegir Posición: `menuprincipal`.
 
 ### Editar fichero `/templates/restaurante/index.php`:
-- cambiar el bloque `<ul>...</ul>` por `<jdoc:include type="modules" name="menuprincipal" style="none" />`.
+- cambiar el bloque `<ul>...</ul>` por `<jdoc:include type=”modules” name=”menuprincipal” style=”none” />`.
 
 ### Editar fichero `/templates/restaurante/css/estilos.css`:
 - cambiar la línea `nav.menu-principal ul li a:hover` por `nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a` para que cambie de color la opción de menú seleccionada.
 ---
 ### Cambiar la Sección Bienvenido como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- añadir `<field>` con el campo `sep3` en `<fieldset name=”opciones”>`: `<field name=”sep3” type=”spacer” label=”Opciones de Sección Bienvenido” />`
+- añadir `<field>` con el campo `sep3` en `<fieldset name=”opciones”>`: `<field name=”sep3” type=”spacer” label=”Opciones de Bienvenido” />`.
+- añadir `<field>` con el campo `bienvenido` en `<fieldset name=”opciones”>`: `<field name=”bienvenido” type=”textarea” label=”Contenido de Bienvenido” filter=”safehtml” />`.
