@@ -159,7 +159,8 @@
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `telefono`:
   ````xml
-  <field name="telefono" type="tel" label="Teléfono" default="666 123 456" description="Inserta tu número de teléfono" />
+  <field name="telefono" type="tel" label="Teléfono" default="666 123 456"
+  description="Inserta tu número de teléfono" />
   ````
 ### Editar Fichero `/templates/restaurante/index.php`:
 - añadir _variable de telefono_ `$telefono`:
@@ -174,7 +175,10 @@
   ````
 
 ### Editar Fichero `/templates/restaurante/templateDetails.xml` para Agrupar Opciones de Plantilla en Backend:
-- añadir `<field>` con el campo `sep1` en `<fieldset name="opciones">`: `<field name="sep1" type="spacer" label="Opciones de Encabezado" />`
+- añadir `<field>` con el campo `sep1`:
+  ````xml
+  <field name="sep1" type="spacer" label="Opciones de Encabezado" />
+  ````
 ---
 ## Cambiar Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para la caja de búsqueda.
@@ -184,7 +188,14 @@
 - escribir texto del campo: `Buscar...`.
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- cambiar `<form action="index.html"><input type="text" name="buscar" placeholder="Buscar…"></form>` por `<jdoc:include type="modules" name="buscar" style="none" />`
+- cambiar:
+  ````php
+  <form action="index.html">
+    <input type="text" name="buscar" placeholder="Buscar…">
+  </form>
+  <!-- por -->
+  <jdoc:include type="modules" name="buscar" style="none" />
+  ````
 
 ### Duplicar Módulo *mod_search* para Sobreescribirlo (Override):
 - copiar `/modules/mod_search en /templates/restaurante/html`.
@@ -205,18 +216,57 @@
 ---
 ## Cambiar Direcciones de Enlaces a Redes Sociales como *Parámetros de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- añadir `<field>` con el campo `sep2` en `<fieldset name="opciones">`: `<field name="sep2" type="spacer" label="Opciones de Redes Sociales" />`
-- añadir `<field>` con el campo `google` en `<fieldset name="opciones">`: `<field name="google" type="url" label="Google+" default="https://plus.google.com" description="Inserta tu dirección de Google+" />`
-- añadir `<field>` con el campo `twitter` en `<fieldset name="opciones">`: `<field name="twitter" type="url" label="Twitter" default="https://twitter.com" description="Inserta tu dirección de Twitter" />`
-- añadir `<field>` con el campo `facebook` en `<fieldset name="opciones">`: `<field name="facebook" type="url" label="Facebook" default="https://www.facebook.com" description="Inserta tu dirección de Facebook" />`
+- añadir `<field>` con el campo `sep2`:
+  ````xml
+  <field name="sep2" type="spacer" label="Opciones de Redes Sociales" />
+  ````
+- añadir `<field>` con el campo `google`:
+  ````xml
+  <field name="google" type="url" label="Google+" default="https://plus.google.com"
+  description="Inserta tu dirección de Google+" />
+  ````
+- añadir `<field>` con el campo `twitter`:
+  ````xml
+  <field name="twitter" type="url" label="Twitter" default="https://twitter.com"
+  description="Inserta tu dirección de Twitter" />
+  ````
+- añadir `<field>` con el campo `facebook`:
+  ````xml
+  <field name="facebook" type="url" label="Facebook" default="https://www.facebook.com"
+  description="Inserta tu dirección de Facebook" />
+  ````
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- añadir _variable para google_ `$google`: `$google=$this->params->get('google');`
-- añadir _variable para twitter_ `$twitter`: `$twitter=$this->params->get('twitter');`
-- añadir _variable para facebook_ `$facebook`: `$facebook=$this->params->get('facebook');`
-- cambiar `<a href="#" class="fa fa-google-plus">` por `<a href="<?php echo $google;?>" class="fa fa-google-plus">`
-- cambiar `<a href="#" class="fa fa-twitter">` por `<a href="<?php echo $twitter;?>" class="fa fa-twitter">`
-- cambiar `<a href="#" class="fa fa-facebook">` por `<a href="<?php echo $telefono;?>" class="fa fa-facebook">`
+- añadir _variable para google_ `$google`:
+  ````php
+  $google=$this->params->get('google');
+  ````
+- añadir _variable para twitter_ `$twitter`:
+  ````php
+  $twitter=$this->params->get('twitter');
+  ````
+- añadir _variable para facebook_ `$facebook`:
+  ````php
+  $facebook=$this->params->get('facebook');
+  ````
+- cambiar:
+  ````php
+  <a href="#" class="fa fa-google-plus">
+  <!-- por -->
+  <a href="<?php echo $google;?>" class="fa fa-google-plus">
+  ````
+- cambiar:
+  ````php
+  <a href="#" class="fa fa-twitter">
+  <!-- por -->
+  <a href="<?php echo $twitter;?>" class="fa fa-twitter">
+  ````
+- cambiar:
+  ````php
+  <a href="#" class="fa fa-facebook">
+  <!-- por -->
+  <a href="<?php echo $telefono;?>" class="fa fa-facebook">
+  ````
 ---
 ## Cambiar Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Contenido / Gestor de categorias / Añadir nueva categoría_ y crear una categoría `Nosotros`.
@@ -227,30 +277,70 @@
   - elegir Posición: `menuprincipal`.
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- cambiar el bloque `<ul>...</ul>` por `<jdoc:include type="modules" name="menuprincipal" style="none" />`.
+- cambiar:
+  ````php
+  <ul>
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Nosotros</a></li>
+    <li><a href="#">Menú</a></li>
+    <li><a href="#">Galería</a></li>
+    <li><a href="#">Pedidos Online</a></li>
+    <li><a href="#">Contáctanos</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+  <!-- por -->
+  <jdoc:include type="modules" name="menuprincipal" style="none" />
+  ````
 
 ### Editar Fichero `/templates/restaurante/css/estilos.css`:
-- cambiar la línea `nav.menu-principal ul li a:hover` por `nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a` para que cambie de color la opción de menú seleccionada.
+- cambiar para modificar el color de la opción de menú seleccionada:
+  ````css
+  nav.menu-principal ul li a:hover
+  // por
+  nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a
+  ````
 ---
 ### Cambiar Sección Bienvenido como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- añadir `<field>` con el campo `sep3` en `<fieldset name="opciones">`: `<field name="sep3" type="spacer" label="Opciones de Bienvenido" />`.
-- añadir `<field>` con el campo `bienvenido` en `<fieldset name="opciones">`: `<field name="bienvenido" type="editor" label="Contenido de Bienvenido" filter="safehtml" />`.
+- añadir `<field>` con el campo `sep3`:
+  ````xml
+  <field name="sep3" type="spacer" label="Opciones de Bienvenido" />
+  ````
+- añadir `<field>` con el campo `bienvenido`:
+  ````xml
+  <field name="bienvenido" type="editor" label="Contenido de Bienvenido" filter="safehtml" />
+  ````
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- por:
+- cambiar:
 ````php
-<h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
-<p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
-<div class="bloque-bienvenidos">
-<figure><a href="#"> <img src="images/horario-atencion.png" alt="HORARIOS DE ATENCIÓN" />
-<h3>HORARIOS DE ATENCIÓN</h3>
-</a> <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption></figure>
-<figure><a href="#"> <img src="images/nuestra-carta.png" alt="NUESTRA CARTA" />
-<h3>NUESTRA CARTA</h3>
-</a> <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption></figure>
-<figure><a href="#"> <img src="images/nuestros-locales.png" alt="NUESTROS LOCALES" />
-<h3>NUESTROS LOCALES</h3>
-</a> <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption></figure>
-</div>
+  <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
+  <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
+  <div class="bloque-bienvenidos">
+    <figure>
+      <a href="#">
+        <img src="images/horario-atencion.png" alt="HORARIOS DE ATENCIÓN" />
+        <h3>HORARIOS DE ATENCIÓN</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
+    </figure>
+    <figure>
+      <a href="#">
+        <img src="images/nuestra-carta.png" alt="NUESTRA CARTA" />
+        <h3>NUESTRA CARTA</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
+    </figure>
+    <figure>
+      <a href="#">
+        <img src="images/nuestros-locales.png" alt="NUESTROS LOCALES" />
+        <h3>NUESTROS LOCALES</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption>
+    </figure>
+  </div>
+  
+  <!-- por -->
+  
+  
 ````
