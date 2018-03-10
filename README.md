@@ -9,8 +9,9 @@
 
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - cambiar nombre de la carpeta `restaurante` en `<name>`:
-````xml
-<name>restaurante</name>````.
+  ````xml
+  <name>restaurante</name>
+  ````
 - cambiar fecha de la plantilla en `<creationDate>`: `<creationDate>Marzo 2018</creationdate>`.
 - cambiar nombre del autor en `<author>`: `<author>Antonio Jose Torres</author>`.
 - cambiar email del autor en `<authorEmail>`: `<authorEmail>antoniojosetorres@gmail.com</authorEmail>`.
