@@ -112,7 +112,7 @@
 - borrar la carpeta `/templates/restaurante/html/mod_custom/tmpl`.
 
 ### Editar Fichero `/templates/restaurante/html/mod_custom/restaurante.php`:
-- borrar `<div>` y `</div>` dejando `<?php echo $module->content;?>` para no insertar `<div class="custom">` en los módulos _HTML personalizado_.
+- borrar `<div>` y `</div>` dejando `<?php echo $module->content; ?>` para no insertar `<div class="custom">` en los módulos _HTML personalizado_.
 
 ### Elegir Módulo *mod_custom* Personalizado (override) en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de módulos_.
@@ -122,25 +122,56 @@
 ---
 ## Cambiar Logo como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- crear `<fieldset>` con el parámetro `opciones` y el campo `logo`:
-    `<fieldset name="opciones" label="Opciones de Plantilla">`
-      `<field name="logo" type="media" label="Logo" description="Inserta tu logo" />`
-    `</fieldset>`
+- crear `<fieldset>` con el parámetro `opciones` y el campo `logo:
+  ````xml
+  <fieldset name="opciones" label="Opciones de Plantilla">
+    <field name="logo" type="media" label="Logo" description="Inserta tu logo" />  
+  </fieldset>
+  ````
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- añadir _variable de aplicación_ `$app` después de la variable `$ruta_p`: `$app=JFactory::getApplication();`.
-- añadir _variable de parámetros_ `$params`: `$params=$app->getParams();`.
-- añadir _variable de logo_ `$logo`: `$logo=$this->params->get('logo');`.
-- cambiar `<a href="#" class="logo">` por `<a href="<?php echo $ruta_s;?>" class="logo">`.
-- cambiar `<img src="images/logo.png" alt="logo">` por `<img src="<?php echo $logo;>" alt="logo">`.
+- añadir _variable de aplicación_ `$app` después de la variable `$ruta_p`:
+  ````php
+  $app=JFactory::getApplication();
+  ````
+- añadir _variable de parámetros_ `$params`:
+  ````php
+  $params=$app->getParams();
+  ````
+- añadir _variable de logo_ `$logo`:
+  ````php
+  $logo=$this->params->get('logo');
+  ````
+- cambiar:
+  ````php
+  <a href="#" class="logo">
+  <!-- por -->
+  <a href="<?php echo $ruta_s;?>" class="logo">
+  ````
+- cambiar:
+  ````php
+  <img src="images/logo.png" alt="logo">
+  <!-- por -->
+  <img src="<?php echo $logo;>" alt="logo">
+  ````
 ---
 ## Cambiar Número de Teléfono como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- añadir `<field>` con el campo `telefono` en `<fieldset name="opciones">`: `<field name="telefono" type="tel" label="Teléfono" default="658 621 946" description="Inserta tu número de teléfono" />`
-
+- añadir `<field>` con el campo `telefono`:
+  ````xml
+  <field name="telefono" type="tel" label="Teléfono" default="666 123 456" description="Inserta tu número de teléfono" />
+  ````
 ### Editar Fichero `/templates/restaurante/index.php`:
-- añadir _variable de telefono_ `$telefono`: `$telefono=$this->params->get('telefono');`
-- cambiar `<a href="tel:666 123 456" class="telefono">` por `<a href="tel:<?php echo $telefono;?>" class="telefono">`
+- añadir _variable de telefono_ `$telefono`:
+  ````php
+  $telefono=$this->params->get('telefono');
+  ````
+- cambiar:
+  ````php
+  <a href="tel:666 123 456" class="telefono">
+  <!-- por -->
+  <a href="tel:<?php echo $telefono;?>" class="telefono">
+  ````
 
 ### Editar Fichero `/templates/restaurante/templateDetails.xml` para Agrupar Opciones de Plantilla en Backend:
 - añadir `<field>` con el campo `sep1` en `<fieldset name="opciones">`: `<field name="sep1" type="spacer" label="Opciones de Encabezado" />`
