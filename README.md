@@ -8,37 +8,48 @@
 - copiar `/templates/beez3/templateDetails.xml` en la carpeta `/templates/restaurante`.
 
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- cambiar nombre de la carpeta `restaurante` en `<name>`:
+- cambiar en el bloque `<extension>..</extension>`:
   ````xml
   <!-- nombre de la carpeta -->
   <name>restaurante</name>
   <!-- fecha de la plantilla -->
-  <creationDate>Marzo 2018</creationdate>
+  <creationDate>Marzo 2018</creationDate>
+  <!-- nombre del autor -->
+  <author>Antonio Jose Torres</author>
+  <!-- email del autor -->
+  <authorEmail>antoniojosetorres @ gmail.com</authorEmail>
+  <!-- web del autor -->
+  <authorUrl>http:// antoniojosetorres.es</authorUrl>
+  <!-- datos del copyright -->
+  <copyright>2018 antoniojosetorres</copyright>
+  <!-- número de versión -->
+  <version>1.0</version>
+  <!-- descripción de la plantilla -->
+  <description>Plantilla para Restaurante</description>
   ````
-- cambiar fecha de la plantilla en `<creationDate>`: `<creationDate>Marzo 2018</creationdate>`.
-- cambiar nombre del autor en `<author>`: `<author>Antonio Jose Torres</author>`.
-- cambiar email del autor en `<authorEmail>`: `<authorEmail>antoniojosetorres@gmail.com</authorEmail>`.
-- cambiar web del autor en `<authorUrl>`: `<authorUrl>http://antoniojosetorres.es</authorUrl>`.
-- cambiar datos del copyright en `<copyright>`: `<copyright>2018 antoniojosetorres.</copyright>`.
-- cambiar número de versión en `<version>`: `<version>1.0</version>`.
-- cambiar descripción de la plantilla en `<description>`: `<description>Plantilla para Restaurante</description>`.
-- cambiar carpetas de la plantilla en `<folder>`:  
-  `<folder>css</folder>`
-  `<folder>fonts</folder>`
-  `<folder>images</folder>`
-  `<folder>js</folder>`
-- cambiar ficheros de la plantilla en `<filename>`:  
-  `<filename>index.html</filename>`  
-  `<filename>index.php</filename>`  
-  `<filename>templateDetails.xml</filename>`  
-  `<filename>template_preview.png</filename>`  
-  `<filename>template_thumbnail.png</filename>`    
-  `<filename>favicon.ico</filename>`
-- cambiar nombres de posiciones de módulos en `<position>`:  
-  `<position>buscar</position>`  
-  `<position>menuprincipal</position>`  
-  `<position>presentacion</position>`  
-  `<position>lateral</position>`
+- cambiar en el bloque `<files>..</files>` las carpetas de la plantilla:
+  ````xml
+	<folder>css</folder>
+	<folder>fonts</folder>
+	<folder>images</folder>
+	<folder>js</folder>
+  ````
+- cambiar en el bloque `<files>..</files>` los ficheros de la plantilla:  
+  ````xml
+  <filename>index.html</filename>
+  <filename>index.php</filename>
+  <filename>templateDetails.xml</filename>
+  <filename>template_preview.png</filename>
+  <filename>template_thumbnail.png</filename>
+  <filename>favicon.ico</filename>
+  ````
+- cambiar en el bloque `<positions>..</positions>` los nombres de las posiciones de los módulos:
+  ````xml
+  <position>buscar</position>
+  <position>menuprincipal</position>
+  <position>presentacion</position>
+  <position>lateral</position>
+  ````
 
 ### Cambiar Plantilla en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de extensiones / Descubrir_ para instalar la plantilla `restaurante`.
