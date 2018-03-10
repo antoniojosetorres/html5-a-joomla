@@ -61,17 +61,17 @@
   <?php defined('_JEXEC') or die; ?>
   ````
 - borrar `<title>Restaurante Maestro</title>` (será generada por Joomla!).
-- borrar `<meta name=”description” content=””>` (será generada por Joomla!).
-- poner `<script src=”js/jquery-2.1.1.min.js”></script>` delante de `</head>`.
-- poner `<script src=”js/modernizr-2.6.2-respond-1.1.0.min.js”></script>` delante de `</head>`.
-- añadir `<jdoc:include type=”head” />` entre `<script>` y `<link>`.
+- borrar `<meta name="description" content="">` (será generada por Joomla!).
+- poner `<script src="js/jquery-2.1.1.min.js"></script>` delante de `</head>`.
+- poner `<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>` delante de `</head>`.
+- añadir `<jdoc:include type="head" />` entre `<script>` y `<link>`.
 - añadir _variable de ruta de sitio_ `$ruta_s` delante de `?>`:
   ````php
   $ruta_s=JURI::base();
   ````
 - añadir _variable de ruta de plantilla_ `$ruta_p`:
   ````php
-  $ruta_p=$ruta_s.”templates/”.$this->template.”/”;
+  $ruta_p=$ruta_s."templates/".$this->template."/";
   ````
 - añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`.
 - añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`.
@@ -83,7 +83,7 @@
   - elegir Posición: `logo`.
   - insertar la imagen `logo.png` con _JCE Editor_:
     ````html
-    <img src=”images/logo.png” alt=”logo”>
+    <img src="images/logo.png" alt="logo">
     ````
 - comprobar la configuración de _JCE Editor_:
   - ir a _Componentes / JCE Editor / Global Configuration_.
@@ -93,15 +93,15 @@
 ### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
-  <a href=”#” class=”logo”>
+  <a href="#" class="logo">
   <!-- por -->
-  <a href=”<?php echo $ruta_s; ?>” class=”logo”>
+  <a href="<?php echo $ruta_s; ?>" class="logo">
   ````
 - cambiar:
   ````php
-  <img src=”images/logo.png” alt=”logo”>
+  <img src="images/logo.png" alt="logo">
   <!-- por -->
-  <jdoc:include type=”modules” name=”logo” style=”none” />
+  <jdoc:include type="modules" name="logo" style="none" />
   ````
 
 ### Duplicar Módulo *mod_custom* para Sobreescribirlo (Override):
@@ -112,7 +112,7 @@
 - borrar la carpeta `/templates/restaurante/html/mod_custom/tmpl`.
 
 ### Editar Fichero `/templates/restaurante/html/mod_custom/restaurante.php`:
-- borrar `<div>` y `</div>` dejando `<?php echo $module->content;?>` para no insertar `<div class=”custom”>` en los módulos _HTML personalizado_.
+- borrar `<div>` y `</div>` dejando `<?php echo $module->content;?>` para no insertar `<div class="custom">` en los módulos _HTML personalizado_.
 
 ### Elegir Módulo *mod_custom* Personalizado (override) en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de módulos_.
@@ -123,27 +123,27 @@
 ## Cambiar Logo como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - crear `<fieldset>` con el parámetro `opciones` y el campo `logo`:
-    `<fieldset name=”opciones” label=”Opciones de Plantilla”>`
-      `<field name=”logo” type=”media” label=”Logo” description=”Inserta tu logo” />`
+    `<fieldset name="opciones" label="Opciones de Plantilla">`
+      `<field name="logo" type="media" label="Logo" description="Inserta tu logo" />`
     `</fieldset>`
 
 ### Editar Fichero `/templates/restaurante/index.php`:
 - añadir _variable de aplicación_ `$app` después de la variable `$ruta_p`: `$app=JFactory::getApplication();`.
 - añadir _variable de parámetros_ `$params`: `$params=$app->getParams();`.
 - añadir _variable de logo_ `$logo`: `$logo=$this->params->get('logo');`.
-- cambiar `<a href=”#” class=”logo”>` por `<a href=”<?php echo $ruta_s;?>” class=”logo”>`.
-- cambiar `<img src=”images/logo.png” alt=”logo”>` por `<img src=”<?php echo $logo;>” alt=”logo”>`.
+- cambiar `<a href="#" class="logo">` por `<a href="<?php echo $ruta_s;?>" class="logo">`.
+- cambiar `<img src="images/logo.png" alt="logo">` por `<img src="<?php echo $logo;>" alt="logo">`.
 ---
 ## Cambiar Número de Teléfono como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- añadir `<field>` con el campo `telefono` en `<fieldset name=”opciones”>`: `<field name=”telefono” type=”tel” label=”Teléfono” default=”658 621 946” description=”Inserta tu número de teléfono” />`
+- añadir `<field>` con el campo `telefono` en `<fieldset name="opciones">`: `<field name="telefono" type="tel" label="Teléfono" default="658 621 946" description="Inserta tu número de teléfono" />`
 
 ### Editar Fichero `/templates/restaurante/index.php`:
 - añadir _variable de telefono_ `$telefono`: `$telefono=$this->params->get('telefono');`
-- cambiar `<a href=”tel:666 123 456” class=”telefono”>` por `<a href=”tel:<?php echo $telefono;?>” class=”telefono”>`
+- cambiar `<a href="tel:666 123 456" class="telefono">` por `<a href="tel:<?php echo $telefono;?>" class="telefono">`
 
 ### Editar Fichero `/templates/restaurante/templateDetails.xml` para Agrupar Opciones de Plantilla en Backend:
-- añadir `<field>` con el campo `sep1` en `<fieldset name=”opciones”>`: `<field name=”sep1” type=”spacer” label=”Opciones de Encabezado” />`
+- añadir `<field>` con el campo `sep1` en `<fieldset name="opciones">`: `<field name="sep1" type="spacer" label="Opciones de Encabezado" />`
 ---
 ## Cambiar Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para la caja de búsqueda.
@@ -153,7 +153,7 @@
 - escribir texto del campo: `Buscar...`.
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- cambiar `<form action=”index.html”><input type=”text” name=”buscar” placeholder=”Buscar…”></form>` por `<jdoc:include type=”modules” name=”buscar” style=”none” />`
+- cambiar `<form action="index.html"><input type="text" name="buscar" placeholder="Buscar…"></form>` por `<jdoc:include type="modules" name="buscar" style="none" />`
 
 ### Duplicar Módulo *mod_search* para Sobreescribirlo (Override):
 - copiar `/modules/mod_search en /templates/restaurante/html`.
@@ -163,7 +163,7 @@
 - borrar la carpeta `/templates/restaurante/html/mod_search/tmpl`.
 
 ### Editar Fichero `/templates/restaurante/html/mod_search/restaurante.php`:
-- borrar `<div>` y `</div>` dejando `<form...>` para no insertar `<div class=”search”>` en los módulos _Buscar_.
+- borrar `<div>` y `</div>` dejando `<form...>` para no insertar `<div class="search">` en los módulos _Buscar_.
 - borrar `<label>` y `</label>` dejando `<form...>` para que no aparezca la palabra _Buscar_ delante de la caja de búsqueda.
 
 ### Elegir Módulo *mod_search* Personalizado (override) en Joomla! (`/administrator/index.php`):
@@ -174,18 +174,18 @@
 ---
 ## Cambiar Direcciones de Enlaces a Redes Sociales como *Parámetros de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- añadir `<field>` con el campo `sep2` en `<fieldset name=”opciones”>`: `<field name=”sep2” type=”spacer” label=”Opciones de Redes Sociales” />`
-- añadir `<field>` con el campo `google` en `<fieldset name=”opciones”>`: `<field name=”google” type=”url” label=”Google+” default=”https://plus.google.com” description=”Inserta tu dirección de Google+” />`
-- añadir `<field>` con el campo `twitter` en `<fieldset name=”opciones”>`: `<field name=”twitter” type=”url” label=”Twitter” default=”https://twitter.com” description=”Inserta tu dirección de Twitter” />`
-- añadir `<field>` con el campo `facebook` en `<fieldset name=”opciones”>`: `<field name=”facebook” type=”url” label=”Facebook” default=”https://www.facebook.com” description=”Inserta tu dirección de Facebook” />`
+- añadir `<field>` con el campo `sep2` en `<fieldset name="opciones">`: `<field name="sep2" type="spacer" label="Opciones de Redes Sociales" />`
+- añadir `<field>` con el campo `google` en `<fieldset name="opciones">`: `<field name="google" type="url" label="Google+" default="https://plus.google.com" description="Inserta tu dirección de Google+" />`
+- añadir `<field>` con el campo `twitter` en `<fieldset name="opciones">`: `<field name="twitter" type="url" label="Twitter" default="https://twitter.com" description="Inserta tu dirección de Twitter" />`
+- añadir `<field>` con el campo `facebook` en `<fieldset name="opciones">`: `<field name="facebook" type="url" label="Facebook" default="https://www.facebook.com" description="Inserta tu dirección de Facebook" />`
 
 ### Editar Fichero `/templates/restaurante/index.php`:
 - añadir _variable para google_ `$google`: `$google=$this->params->get('google');`
 - añadir _variable para twitter_ `$twitter`: `$twitter=$this->params->get('twitter');`
 - añadir _variable para facebook_ `$facebook`: `$facebook=$this->params->get('facebook');`
-- cambiar `<a href=”#” class=”fa fa-google-plus”>` por `<a href=”<?php echo $google;?>” class=”fa fa-google-plus”>`
-- cambiar `<a href=”#” class=”fa fa-twitter”>` por `<a href=”<?php echo $twitter;?>” class=”fa fa-twitter”>`
-- cambiar `<a href=”#” class=”fa fa-facebook”>` por `<a href=”<?php echo $telefono;?>” class=”fa fa-facebook”>`
+- cambiar `<a href="#" class="fa fa-google-plus">` por `<a href="<?php echo $google;?>" class="fa fa-google-plus">`
+- cambiar `<a href="#" class="fa fa-twitter">` por `<a href="<?php echo $twitter;?>" class="fa fa-twitter">`
+- cambiar `<a href="#" class="fa fa-facebook">` por `<a href="<?php echo $telefono;?>" class="fa fa-facebook">`
 ---
 ## Cambiar Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Contenido / Gestor de categorias / Añadir nueva categoría_ y crear una categoría `Nosotros`.
@@ -196,15 +196,15 @@
   - elegir Posición: `menuprincipal`.
 
 ### Editar Fichero `/templates/restaurante/index.php`:
-- cambiar el bloque `<ul>...</ul>` por `<jdoc:include type=”modules” name=”menuprincipal” style=”none” />`.
+- cambiar el bloque `<ul>...</ul>` por `<jdoc:include type="modules" name="menuprincipal" style="none" />`.
 
 ### Editar Fichero `/templates/restaurante/css/estilos.css`:
 - cambiar la línea `nav.menu-principal ul li a:hover` por `nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a` para que cambie de color la opción de menú seleccionada.
 ---
 ### Cambiar Sección Bienvenido como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
-- añadir `<field>` con el campo `sep3` en `<fieldset name=”opciones”>`: `<field name=”sep3” type=”spacer” label=”Opciones de Bienvenido” />`.
-- añadir `<field>` con el campo `bienvenido` en `<fieldset name=”opciones”>`: `<field name=”bienvenido” type=”editor” label=”Contenido de Bienvenido” filter=”safehtml” />`.
+- añadir `<field>` con el campo `sep3` en `<fieldset name="opciones">`: `<field name="sep3" type="spacer" label="Opciones de Bienvenido" />`.
+- añadir `<field>` con el campo `bienvenido` en `<fieldset name="opciones">`: `<field name="bienvenido" type="editor" label="Contenido de Bienvenido" filter="safehtml" />`.
 
 ### Editar Fichero `/templates/restaurante/index.php`:
 - por:
