@@ -1,6 +1,10 @@
+<a name="inicio"></a>
 # Cómo Convertir una Plantilla HTML5 a Joomla!
-- *[Preparación](#preparacion)*
-- *[Logo](#logo-mod)*
+- **[Preparación](#preparacion)**
+- **[Logo como módulo](#logo-mod)**
+- **[Logo como parámetro](#logo-par)**
+- **[Teléfono como parámetro](#telefono-par)**
+- **[Redes Sociales como parámetros](#rrss-par)**
 
 <a name="preparacion"></a>
 ### Preparación:
@@ -168,7 +172,8 @@
   <img src="<?php echo $logo;>" alt="logo">
   ````
 ---
-<a name="telefono-parametro"></a>
+[Inicio](#inicio)
+<a name="telefono-par"></a>
 ## Cambiar Número de Teléfono como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `telefono`:
