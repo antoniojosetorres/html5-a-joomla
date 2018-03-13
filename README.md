@@ -1,10 +1,10 @@
-# CÓMO CONVERTIR UNA PLANTILLA HTML5 A UNA PLANTILLA JOOMLA!
+# CÓMO CAMBIAR UNA PLANTILLA HTML5 A UNA PLANTILLA JOOMLA!
 <a name="inicio"></a>
 - **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
 - **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
 - **[Cómo Cambiar el Número de Teléfono como Parámetro de Plantilla](#telefono-par)**
 - **[Cómo Cambiar la Caja de Búsqueda como Módulo](#buscar-mod)**
-- **[Cómo Camabiar las Direcciones de las Redes Sociales como Parámetros de Plantilla](#rrss-par)**
+- **[Cómo Cambiar las Direcciones de las Redes Sociales como Parámetros de Plantilla](#rrss-par)**
 - **[Cómo Cambiar el Menú Principal como Módulo](#menu-mod)**
 - **[Cómo Cambiar la Presentación como Módulo](#presentacion-mod)**
 - **[Cómo Cambiar la Sección Bienvenido como Parámetro de Plantilla](#bienvenido-par)**
