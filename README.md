@@ -1,5 +1,8 @@
 # Cómo Convertir una Plantilla HTML5 a Joomla!
+- *[Preparación](#preparacion)*
+- *[Logo](#logo-mod)*
 
+<a name="preparacion"></a>
 ### Preparación:
 - copiar carpeta `restaurante` dentro de `/templates`.
 - renombrar `/templates/restaurante/index.html` como `ìndex.php`.
@@ -76,6 +79,7 @@
 - añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`.
 - añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`.
 ---
+<a name="logo-mod"></a>
 ## Cambiar Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones / Gestor de módulos_ para crear un módulo para el logo.
 - pulsar botón _Nuevo_ y elegir la opción _HTML personalizado_.
@@ -124,6 +128,7 @@
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / restaurante_.
 ---
+<a name="logo-parametro"></a>
 ## Cambiar Logo como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - crear `<fieldset>` con el parámetro `opciones` y el campo `logo:
@@ -163,6 +168,7 @@
   <img src="<?php echo $logo;>" alt="logo">
   ````
 ---
+<a name="telefono-parametro"></a>
 ## Cambiar Número de Teléfono como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `telefono`:
@@ -226,6 +232,7 @@
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / restaurante_.
 ---
+<a name="rrss-par"></a>
 ## Cambiar Direcciones de Enlaces a Redes Sociales como *Parámetros de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep2`:
@@ -404,3 +411,7 @@
   ````php
   $bienvenido=$this->params->get('bienvenido');
   ````
+---
+### Cambiar Contenido Principal como *Módulo*:
+## Entrar en Joomla! `(/administrator/index.php)`:
+
