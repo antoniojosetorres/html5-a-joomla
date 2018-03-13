@@ -1,5 +1,5 @@
-<a name="inicio"></a>
 # Cómo Convertir una Plantilla HTML5 a Joomla!
+<a name="inicio"></a>
 - **[Preparación](#preparacion)**
 - **[Logo como módulo](#logo-mod)**
 - **[Logo como parámetro](#logo-par)**
@@ -132,7 +132,7 @@
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / restaurante_.
 ---
-<a name="logo-parametro"></a>
+<a name="logo-par"></a>[ir a Inicio](#inicio)
 ## Cambiar Logo como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - crear `<fieldset>` con el parámetro `opciones` y el campo `logo:
@@ -172,8 +172,7 @@
   <img src="<?php echo $logo;>" alt="logo">
   ````
 ---
-[Inicio](#inicio)
-<a name="telefono-par"></a>
+<a name="telefono-par"></a>[ir a Inicio](#inicio)
 ## Cambiar Número de Teléfono como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `telefono`:
@@ -237,7 +236,7 @@
 - ir a _Avanzado / Presentación alternativa_.
 - elegir _---Desde plantilla--- / restaurante_.
 ---
-<a name="rrss-par"></a>
+<a name="rrss-par"></a>[ir a Inicio](#inicio)
 ## Cambiar Direcciones de Enlaces a Redes Sociales como *Parámetros de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep2`:
@@ -298,6 +297,7 @@
   <a href="<?php echo $telefono;?>" class="fa fa-facebook">
   ````
 ---
+<a name="menu-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Contenido / Gestor de categorias / Añadir nueva categoría_ y crear una categoría `Nosotros`.
 - ir a _Artículos_ y crear tantos artículos nuevos en esa categoría como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
@@ -334,6 +334,7 @@
   nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a {
   ````
 ---
+<a name="bienvenido-par"></a>[ir a Inicio](#inicio)
 ### Cambiar Sección Bienvenido como *Parámetro de Plantilla*:
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep3`:
@@ -417,6 +418,7 @@
   $bienvenido=$this->params->get('bienvenido');
   ````
 ---
+<a name="contenido-mod"></a>[ir a Inicio](#inicio)
 ### Cambiar Contenido Principal como *Módulo*:
 ## Entrar en Joomla! `(/administrator/index.php)`:
 
