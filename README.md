@@ -5,6 +5,9 @@
 - **[Logo como parámetro](#logo-par)**
 - **[Teléfono como parámetro](#telefono-par)**
 - **[Redes Sociales como parámetros](#rrss-par)**
+- **[Menú Principal como módulo](#menu-mod)**
+- **[Sección Bienvenido como parámetro](#bienvenido-par)**
+- **[Contenido Principal como módulo](#contenido-mod)**
 
 <a name="preparacion"></a>
 ### Preparación:
