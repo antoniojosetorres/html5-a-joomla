@@ -1,21 +1,22 @@
-# Cómo Convertir una Plantilla HTML5 a Joomla!
+# CÓMO COMVERTIR UNA PLANTILLA HTML5 A UNA PLANTILLA JOOMLA!
 <a name="inicio"></a>
-- **[Preparación](#preparacion)**
-- **[Logo como módulo](#logo-mod)**
-- **[Logo como parámetro](#logo-par)**
-- **[Teléfono como parámetro](#telefono-par)**
-- **[Redes Sociales como parámetros](#rrss-par)**
-- **[Menú Principal como módulo](#menu-mod)**
-- **[Sección Bienvenido como parámetro](#bienvenido-par)**
-- **[Contenido Principal como módulo](#contenido-mod)**
+- **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
+- **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
+- **[Cómo Cambiar el Número de Teléfono como Parámetro de Plantilla](#telefono-par)**
+- **[Cómo Cambiar la Caja de Búsqueda como Módulo](#buscar-mod)**
+- **[Cómo Camabiar las Direcciones de las Redes Sociales como Parámetros de Plantilla](#rrss-par)**
+- **[Cómo Cambiar el Menú Principal como Módulo](#menu-mod)**
+- **[Cómo Cambiar la Presentación como Módulo](#presentacion-mod)**
+- **[Cómo Cambiar la Sección Bienvenido como Parámetro de Plantilla](#bienvenido-par)**
+- **[Cómo Cambiar el Contenido Principal como Módulo](#contenido-mod)**
 <a name="preparacion"></a>
-### Preparación:
+## Preparación Inicial:
 - copiar carpeta `restaurante` dentro de `/templates`.
 - renombrar `/templates/restaurante/index.html` como `ìndex.php`.
 - crear `/templates/restaurante/index.html` vacío.
 - copiar `/templates/beez3/template_preview.png` y `template_thumbnail.png` en `/templates/restaurante`.
 - copiar `/templates/beez3/templateDetails.xml` en la carpeta `/templates/restaurante`.
-### Editar Fichero `/templates/restaurante/templateDetails.xml`:
+### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - cambiar en el bloque `<extension>..</extension>`:
   ````xml
   <!-- nombre de la carpeta -->
@@ -58,10 +59,10 @@
   <position>presentacion</position>
   <position>lateral</position>
   ````
-### Cambiar Plantilla en Joomla! (`/administrator/index.php`):
-- ir a _Extensiones / Gestor de extensiones / Descubrir_ para instalar la plantilla `restaurante`.
-- ir a _Extensiones / Gestor de plantillas_ para marcar como predeterminada la plantilla `restaurante`.
-### Editar Fichero `/templates/restaurante/index.php`:
+### Cambiar la Plantilla en Joomla! (`/administrator/index.php`):
+- ir a _Extensiones > Gestor de extensiones > Descubrir_ e instalar la plantilla `restaurante`.
+- ir a _Extensiones > Gestor de plantillas_ y marcar la plantilla `restaurante` como _predeterminada_.
+### Editar el Fichero `/templates/restaurante/index.php`:
 - añadir al comienzo una _línea de seguridad_:
   ````php
   <?php defined('_JEXEC') or die; ?>
@@ -81,21 +82,20 @@
   ````
 - añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`.
 - añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`.
----
+===
 <a name="logo-mod"></a>
-## Cambiar Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
-- ir a _Extensiones / Gestor de módulos_ para crear un módulo nuevo de tipo _HTML personalizado_:
-  - escribir Título: `Logo`.
-  - elegir Posición: `logo`.
-  - insertar la imagen `logo.png` con _JCE Editor_:
+## Cómo Cambiar el Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
+- ir a _Extensiones > Gestor de módulos_ y crear un módulo nuevo de tipo _HTML personalizado_:
+  - escribir _Título_: `Logo`.
+  - elegir _Posición_: `logo`.
+  - añadir la imagen `logo.png`:
     ````html
     <img src="images/logo.png" alt="logo">
     ````
-- comprobar la configuración de _JCE Editor_:
-  - ir a _Componentes / JCE Editor / Global Configuration_.
-  - en _Formatting & Display / Container Element & Enter Key_: `No Container & Paragraph on Enter`.
-  - en _Cleanup & Output / Validate HTML_: `No`.
-### Editar Fichero `/templates/restaurante/index.php`:
+- ir a _Componentes > JCE Editor > Global Configuration_ y comprobar la configuración de _JCE Editor_:
+  - en _Cleanup & Output > Validate HTML_, elegir: `No`.
+  - en _Formatting & Display > Container Element & Enter Key_, elegir: `No Container & Paragraph on Enter`.
+### Editar el Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
   <a href="#" class="logo">
@@ -112,29 +112,28 @@
     ````php
     <jdoc:include type="modules" name="logo" style="none" />
     ````
-### Duplicar Módulo *mod_custom* para Sobreescribirlo (Override):
+### Duplicar el Módulo *mod_custom* para Sobreescribirlo (Override):
 - crear carpeta `html` en `/templates/restaurante`.
 - copiar `/modules/mod_custom` en `/templates/restaurante/html`.
 - borrar `/templates/restaurante/html/mod_custom/mod_custom.php` y `mod_custom.xml`.
 - copiar `/templates/restaurante/html/mod_custom/tmpl/default.php` en `/templates/restaurante/html/mod_custom/restaurante.php`.
 - borrar la carpeta `/templates/restaurante/html/mod_custom/tmpl`.
-### Editar Fichero `/templates/restaurante/html/mod_custom/restaurante.php`:
+### Editar el Fichero `/templates/restaurante/html/mod_custom/restaurante.php`:
 - borrar `<div>` y `</div>` dejando `<?php echo $module->content; ?>` para no insertar `<div class="custom">` en los módulos _HTML personalizado_.
-### Elegir Módulo *mod_custom* Personalizado (override) en Joomla! (`/administrator/index.php`):
-- ir a _Extensiones / Gestor de módulos_ y hacer click en el módulo _Logo_:
-  - ir a _Avanzado / Presentación alternativa_.
-  - elegir _---Desde plantilla--- / restaurante_.
----
+### Elegir el Módulo *mod_custom* Personalizado (override) en Joomla! (`/administrator/index.php`):
+- ir a _Extensiones > Gestor de módulos_ y hacer click en el módulo _Logo_:
+  - en _Avanzado > Presentación alternativa_, elegir: _---Desde plantilla--- > restaurante_.
+===
 <a name="logo-par"></a>[ir a Inicio](#inicio)
-## Cambiar Logo como *Parámetro de Plantilla*:
-### Editar Fichero `/templates/restaurante/templateDetails.xml`:
+## Cómo Cambiar el Logo como *Parámetro de Plantilla*:
+### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - crear `<fieldset>` con el parámetro `opciones` y el campo `logo:
   ````xml
   <fieldset name="opciones" label="Opciones de Plantilla">
     <field name="logo" type="media" label="Logo" description="Inserta tu logo" />  
   </fieldset>
   ````
-### Editar Fichero `/templates/restaurante/index.php`:
+### Editar el Fichero `/templates/restaurante/index.php`:
 - añadir _variable de aplicación_ `$app` después de la variable `$ruta_p`:
   ````php
   $app=JFactory::getApplication();
@@ -163,16 +162,15 @@
   ````php
   <img src="<?php echo $logo;>" alt="logo">
   ````
----
+===
 <a name="telefono-par"></a>[ir a Inicio](#inicio)
-## Cambiar Número de Teléfono como *Parámetro de Plantilla*:
-### Editar Fichero `/templates/restaurante/templateDetails.xml`:
+## Cómo Cambiar el Número de Teléfono como *Parámetro de Plantilla*:
+### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `telefono`:
   ````xml
-  <field name="telefono" type="tel" label="Teléfono" default="666 123 456"
-  description="Inserta tu número de teléfono" />
+  <field name="telefono" type="tel" label="Teléfono" default="666 123 456" description="Inserta tu número de teléfono" />
   ````
-### Editar Fichero `/templates/restaurante/index.php`:
+### Editar el Fichero `/templates/restaurante/index.php`:
 - añadir _variable de telefono_ `$telefono`:
   ````php
   $telefono=$this->params->get('telefono');
@@ -185,18 +183,19 @@
   ````php
   <a href="tel:<?php echo $telefono;?>" class="telefono">
   ````
-### Editar Fichero `/templates/restaurante/templateDetails.xml` para Agrupar Opciones de Plantilla en Backend:
-- añadir `<field>` con el campo `sep1`:
+### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
+- añadir `<field>` con el campo `sep1` para agrupar las opciones de plantilla en el backend de Joomla!:
   ````xml
   <field name="sep1" type="spacer" label="Opciones de Encabezado" />
   ````
----
-## Cambiar Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
-- ir a _Extensiones / Gestor de módulos_ para crear un módulo nuevo de tipo _Buscar_:
-  - escribir Título: `Caja de busqueda`.
-  - elegir Posición: `buscar`.
-  - escribir texto del campo: `Buscar...`.
-### Editar Fichero `/templates/restaurante/index.php`:
+===
+<a name="buscar-mod"></a>[ir a Inicio](#inicio)
+## Cómo Cambiar la Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
+- ir a _Extensiones > Gestor de módulos_ y crear un módulo nuevo de tipo _Buscar_:
+  - escribir _Título_: `Caja de busqueda`.
+  - elegir _Posición_: `buscar`.
+  - escribir _Texto del campo_: `Buscar...`.
+### Editar el Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
   <form action="index.html">
@@ -207,23 +206,22 @@
   ````php
   <jdoc:include type="modules" name="buscar" style="none" />
   ````
-### Duplicar Módulo *mod_search* para Sobreescribirlo (Override):
+### Duplicar el Módulo *mod_search* para Sobreescribirlo (Override):
 - copiar `/modules/mod_search en /templates/restaurante/html`.
 - borrar `/templates/restaurante/html/mod_search/mod_search.php`, `mod_search.xml` y `helper.php`.
 - copiar `/templates/restaurante/html/mod_search/tmpl/default.php` en `/templates/restaurante/html/mod_search`.
 - renombrar `/templates/restaurante/html/mod_search` como `restaurante.php`.
 - borrar la carpeta `/templates/restaurante/html/mod_search/tmpl`.
-### Editar Fichero `/templates/restaurante/html/mod_search/restaurante.php`:
+### Editar el Fichero `/templates/restaurante/html/mod_search/restaurante.php`:
 - borrar `<div>` y `</div>` dejando `<form...>` para no insertar `<div class="search">` en los módulos _Buscar_.
 - borrar `<label>` y `</label>` dejando `<form...>` para que no aparezca la palabra _Buscar_ delante de la caja de búsqueda.
-### Elegir Módulo *mod_search* Personalizado (override) en Joomla! (`/administrator/index.php`):
-- ir a _Extensiones / Gestor de módulos_ y hacer click en el módulo _Caja de busqueda_:
-  - ir a _Avanzado / Presentación alternativa_.
-  - elegir _---Desde plantilla--- / restaurante_.
----
+### Elegir el Módulo *mod_search* Personalizado (override) en Joomla! (`/administrator/index.php`):
+- ir a _Extensiones > Gestor de módulos_ y hacer click en el módulo _Caja de busqueda_:
+  - en _Avanzado > Presentación alternativa_, elegir: _---Desde plantilla--- > restaurante_.
+===
 <a name="rrss-par"></a>[ir a Inicio](#inicio)
-## Cambiar Direcciones de Enlaces a Redes Sociales como *Parámetros de Plantilla*:
-### Editar Fichero `/templates/restaurante/templateDetails.xml`:
+## Cómo Cambiar las Direcciones de Redes Sociales como *Parámetros de Plantilla*:
+### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep2`:
   ````xml
   <field name="sep2" type="spacer" label="Opciones de Redes Sociales" />
@@ -243,7 +241,7 @@
   <field name="facebook" type="url" label="Facebook" default="https://www.facebook.com"
   description="Inserta tu dirección de Facebook" />
   ````
-### Editar Fichero `/templates/restaurante/index.php`:
+### Editar el Fichero `/templates/restaurante/index.php`:
 - añadir _variable para google_ `$google`:
   ````php
   $google=$this->params->get('google');
@@ -280,16 +278,16 @@
   ````php
   <a href="<?php echo $telefono;?>" class="fa fa-facebook">
   ````
----
+===
 <a name="menu-mod"></a>[ir a Inicio](#inicio)
-## Cambiar Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
-- ir a _Contenido / Gestor de categorias / Añadir nueva categoría_ y crear una nueva categoría `Nosotros`.
+## Cómo Cambiar el Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
+- ir a _Contenido > Gestor de categorias > Añadir nueva categoría_ y crear una nueva categoría `Nosotros`.
 - ir a _Artículos_ y crear tantos artículos nuevos en esa categoría como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
-- ir a _Menús / Main Menu_ y crear tantos elementos de menú del tipo `Artículos > Mostrar un solo artículo` como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
-- ir a _Extensiones / Gestor de módulos_ y editar el módulo `Main Menu`:
-  - escribir Título: `Menu Principal`.
-  - elegir Posición: `menuprincipal`.
-### Editar Fichero `/templates/restaurante/index.php`:
+- ir a _Menús > Main Menu_ y crear tantos elementos de menú del tipo `Artículos > Mostrar un solo artículo` como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
+- ir a _Extensiones > Gestor de módulos_ y editar el módulo `Main Menu`:
+  - escribir _Título_: `Menu Principal`.
+  - elegir _Posición_: `menuprincipal`.
+### Editar el Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
   <ul>
@@ -306,7 +304,7 @@
   ````php
   <jdoc:include type="modules" name="menuprincipal" style="none" />
   ````
-### Editar Fichero `/templates/restaurante/css/estilos.css`:
+### Editar el Fichero `/templates/restaurante/css/estilos.css`:
 - cambiar para modificar el color de la opción de menú seleccionada:
   ````css
   nav.menu-principal ul li a:hover {
@@ -316,9 +314,29 @@
   nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a {
   ````
 ---
+<a name="presentacion-mod"></a>[ir a Inicio](#inicio)
+## Cambiar la Presentación como *Módulo*:
+- (haciendo uso de un módulo externo de pago llamado **Layer Slider**).
+### Editar el Fichero `/templates/restaurante/index.php`:
+- cambiar el contenido de `<div class="contenedor">...</div>` de `<section class="presentacion">...</section>`:
+  ````php
+  <div class="texto-presentacion">
+    <h1>EL PLACER DE COMER</h1>
+    <h2>VEN  A DISFRUTAR DE LOS MEJORES PLATOS NACIONALES</h2>
+    <a href="#" class="boton-principal">VER NUESTROS PLATOS</a>
+  </div>
+  <div class="images-presentacion">
+    <img alt='Hamburguesa' data-src='<515:images/hamburguesa-chica.png,<770:images/hamburguesa-mediana.png,>771:images/hamburguesa.png' />
+  </div>
+  ````
+  por:
+  ````php
+  <jdoc:include type="modules" name="presentacion" style="none" />
+  ````
+===
 <a name="bienvenido-par"></a>[ir a Inicio](#inicio)
-### Cambiar Sección Bienvenido como *Parámetro de Plantilla*:
-### Editar Fichero `/templates/restaurante/templateDetails.xml`:
+## Cómo Cambiar la Sección Bienvenido como *Parámetro de Plantilla*:
+### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep3`:
   ````xml
   <field name="sep3" type="spacer" label="Opciones de Bienvenido" />
@@ -328,8 +346,8 @@
   <field name="bienvenido" type="editor" label="Contenido de Bienvenido" filter="safehtml" />
   ````
 ### Entrar en Joomla! (`/administrator/index.php`):
-- ir a _Extensiones / Gestor de plantillas_ y hacer click en el estilo _Restaurante_.
-- ir a _Opciones de Plantilla / Contenido de Bienvenido_ y añadir el contenido de `<div class="contenedor">...</div>` de `<section class="bienvenidos">...</section>`:
+- ir a _Extensiones > Gestor de plantillas_ y hacer click en el estilo _Restaurante_.
+- ir a _Opciones de Plantilla > Contenido de Bienvenido_ y añadir el contenido de `<div class="contenedor">...</div>` de `<section class="bienvenidos">...</section>`:
   ````php
   <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
   <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
@@ -357,7 +375,7 @@
     </figure>
   </div>
   ````
-### Editar Fichero `/templates/restaurante/index.php`:
+### Editar el Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
   <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
@@ -390,16 +408,16 @@
   ````php
   <jdoc:include type="modules" name="bienvenido" style="none" />
   ````
-### Editar Fichero `/templates/restaurante/index.php`:
+### Editar el Fichero `/templates/restaurante/index.php`:
 - añadir _variable bienvenido_ `$bienvenido`:
   ````php
   $bienvenido=$this->params->get('bienvenido');
   ````
 ---
 <a name="contenido-mod"></a>[ir a Inicio](#inicio)
-## Cambiar Contenido Principal como *Módulo*:
+## Cambiar el Contenido Principal como *Módulo*:
 ### Entrar en Joomla! `(/administrator/index.php)`:
-- ir a _Contenido / Gestor de artículos / Añadir nuevo artículo_ y crear un artículo nuevo `Pagina Inicial`.
+- ir a _Contenido > Gestor de artículos > Añadir nuevo artículo_ y crear un artículo nuevo `Pagina Inicial`.
 - añadir el contenido de `<article class="quienes-somos">..</article>`:
   ````php
   <h2>BIENVENIDOS A SU RESTAURANTE</h2>
@@ -407,22 +425,17 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptatem incidunt libero non voluptas maiores repellendus, placeat ut ratione! Provident odit perspiciatis maiores eaque soluta quae, beatae ex iusto at ratione! Provident odit perspiciatis maiores eaque soluta quae, beatae ex iusto <br> <a href="#">VER MÁS</a>
   </p>
   ````
-- cambiar:
-  ````php
-  <a href="#">
-  ````
-  por
-  ````php
-  <a href="#" class="ver-mas">
-  ````
-- ir a _Menús / Main Menu_ y hacer click en el elemento `Home`:
+- editar el enlace `VER MÁS` desde _JCE Editor_ para que apunte al elemento del _Menú Principal_ `Nosotros`:
+  - en _Link_, elegir: _Menu > Main Menu > Nosotros_.
+  - en _Advanced > Classes_, escribir: `ver-mas`.
+- ir a _Menús > Main Menu_ y hacer click en el elemento `Home`:
   - cambiar _Título_: `Inicio`.
   - elegir _Tipo de elemento del menú_: `Mostrar un solo artículo`.
   - elegir _Seleccionar artículo_: `Pagina Inicial`.
-  - en _Opciones_, elegir _Mostrar/Ocultar_, _Sí/No_ según el diseño.
-  - elegir _Visualización de la página / Mostrar el encabezado de la página_: `No`.
-### Editar Fichero `/templates/restaurante/index.php`:
-- cambiar:
+  - en _Opciones_, elegir _Mostrar/Ocultar_, _Sí/No_ según el diseño. Para cambiar de manera global para todos los artículos, ir a _Sistema > Configuración global > Artículos_.
+  - en _Visualización de la página > Mostrar el encabezado de la página_, elegir: `No`.
+### Editar el Fichero `/templates/restaurante/index.php`:
+- cambiar el contenido de `<article class="quienes-somos">...</article>`:
   ````php
   <h2>BIENVENIDOS A SU RESTAURANTE</h2>
   <img src="images/quienes-somos.jpg" alt="¿QUIENES SOMOS?">
@@ -434,7 +447,9 @@
   <jdoc:include type="message" />
   <jdoc:include type="component" />
   ````
+// Creo que no hace falta
 ### Editar Fichero `/templates/restaurante/css/estilos.css`:
+- cambiar para añadir 
 - cambiar:
   ````css
   main article.quienes-somos a {
@@ -451,4 +466,6 @@
   ````css
   main article.quienes-somos a.ver-mas:hover {
   ````
-
+//
+para poner todos los titulos de los articulos en mayusculas
+añadir en main article h2 {...}, text-transform: uppercase;
