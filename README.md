@@ -332,6 +332,38 @@
   ````xml
   <field name="bienvenido" type="editor" label="Contenido de Bienvenido" filter="safehtml" />
   ````
+### Entrar en Joomla! (`/administrator/index.php`):
+- ir a _Extensiones / Gestor de plantillas_.
+- hacer click en el estilo _Restaurante_.
+- ir a _Opciones de Plantilla / Contenido de Bienvenido_.
+- añadir:
+  ````php
+  <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
+  <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
+  <div class="bloque-bienvenidos">
+    <figure>
+      <a href="#">
+        <img src="images/horario-atencion.png" alt="HORARIOS DE ATENCIÓN" />
+        <h3>HORARIOS DE ATENCIÓN</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
+    </figure>
+    <figure>
+      <a href="#">
+        <img src="images/nuestra-carta.png" alt="NUESTRA CARTA" />
+        <h3>NUESTRA CARTA</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
+    </figure>
+    <figure>
+      <a href="#">
+        <img src="images/nuestros-locales.png" alt="NUESTROS LOCALES" />
+        <h3>NUESTROS LOCALES</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption>
+    </figure>
+  </div>
+  ````
 
 ### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar:
@@ -363,3 +395,12 @@
   </div>
   ````
   por:
+  ````php
+  <jdoc:include type="modules" name="bienvenido" style="none" />
+  ````
+
+### Editar Fichero `/templates/restaurante/index.php`:
+- añadir _variable bienvenido_ `$bienvenido`:
+  ````php
+  $bienvenido=$this->params->get('bienvenido');
+  ````
