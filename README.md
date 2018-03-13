@@ -84,8 +84,7 @@
 ---
 <a name="logo-mod"></a>
 ## Cambiar Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
-- ir a _Extensiones / Gestor de módulos_ para crear un módulo para el logo.
-- pulsar botón _Nuevo_ y elegir la opción _HTML personalizado_.
+- ir a _Extensiones / Gestor de módulos_ para crear un módulo nuevo de tipo _HTML personalizado_:
   - escribir Título: `Logo`.
   - elegir Posición: `logo`.
   - insertar la imagen `logo.png` con _JCE Editor_:
@@ -122,10 +121,9 @@
 ### Editar Fichero `/templates/restaurante/html/mod_custom/restaurante.php`:
 - borrar `<div>` y `</div>` dejando `<?php echo $module->content; ?>` para no insertar `<div class="custom">` en los módulos _HTML personalizado_.
 ### Elegir Módulo *mod_custom* Personalizado (override) en Joomla! (`/administrator/index.php`):
-- ir a _Extensiones / Gestor de módulos_.
-- hacer click en el módulo _Logo_.
-- ir a _Avanzado / Presentación alternativa_.
-- elegir _---Desde plantilla--- / restaurante_.
+- ir a _Extensiones / Gestor de módulos_ y hacer click en el módulo _Logo_:
+  - ir a _Avanzado / Presentación alternativa_.
+  - elegir _---Desde plantilla--- / restaurante_.
 ---
 <a name="logo-par"></a>[ir a Inicio](#inicio)
 ## Cambiar Logo como *Parámetro de Plantilla*:
@@ -194,11 +192,10 @@
   ````
 ---
 ## Cambiar Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
-- ir a _Extensiones / Gestor de módulos_ para crear un módulo para la caja de búsqueda.
-- pulsar botón _Nuevo_ y elegir la opción _Buscar_.
-- escribir Título: `Caja de busqueda`.
-- elegir Posición: `buscar`.
-- escribir texto del campo: `Buscar...`.
+- ir a _Extensiones / Gestor de módulos_ para crear un módulo nuevo de tipo _Buscar_:
+  - escribir Título: `Caja de busqueda`.
+  - elegir Posición: `buscar`.
+  - escribir texto del campo: `Buscar...`.
 ### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
@@ -220,10 +217,9 @@
 - borrar `<div>` y `</div>` dejando `<form...>` para no insertar `<div class="search">` en los módulos _Buscar_.
 - borrar `<label>` y `</label>` dejando `<form...>` para que no aparezca la palabra _Buscar_ delante de la caja de búsqueda.
 ### Elegir Módulo *mod_search* Personalizado (override) en Joomla! (`/administrator/index.php`):
-- ir a _Extensiones / Gestor de módulos_.
-- hacer click en el módulo _Caja de busqueda_.
-- ir a _Avanzado / Presentación alternativa_.
-- elegir _---Desde plantilla--- / restaurante_.
+- ir a _Extensiones / Gestor de módulos_ y hacer click en el módulo _Caja de busqueda_:
+  - ir a _Avanzado / Presentación alternativa_.
+  - elegir _---Desde plantilla--- / restaurante_.
 ---
 <a name="rrss-par"></a>[ir a Inicio](#inicio)
 ## Cambiar Direcciones de Enlaces a Redes Sociales como *Parámetros de Plantilla*:
@@ -287,10 +283,10 @@
 ---
 <a name="menu-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
-- ir a _Contenido / Gestor de categorias / Añadir nueva categoría_ y crear una categoría `Nosotros`.
+- ir a _Contenido / Gestor de categorias / Añadir nueva categoría_ y crear una nueva categoría `Nosotros`.
 - ir a _Artículos_ y crear tantos artículos nuevos en esa categoría como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
 - ir a _Menús / Main Menu_ y crear tantos elementos de menú del tipo `Artículos > Mostrar un solo artículo` como opciones del menú: `Nosotros`, `Menu`, `Galeria`, `Pedidos Online`, `Contactanos` y `Blog`.
-- ir a _Extensiones / Gestor de módulos_ y editar el módulo `Main Menu`.
+- ir a _Extensiones / Gestor de módulos_ y editar el módulo `Main Menu`:
   - escribir Título: `Menu Principal`.
   - elegir Posición: `menuprincipal`.
 ### Editar Fichero `/templates/restaurante/index.php`:
@@ -332,10 +328,8 @@
   <field name="bienvenido" type="editor" label="Contenido de Bienvenido" filter="safehtml" />
   ````
 ### Entrar en Joomla! (`/administrator/index.php`):
-- ir a _Extensiones / Gestor de plantillas_.
-- hacer click en el estilo _Restaurante_.
-- ir a _Opciones de Plantilla / Contenido de Bienvenido_.
-- añadir:
+- ir a _Extensiones / Gestor de plantillas_ y hacer click en el estilo _Restaurante_.
+- ir a _Opciones de Plantilla / Contenido de Bienvenido_ y añadir el contenido de `<div class="contenedor">...</div>` de `<section class="bienvenidos">...</section>`:
   ````php
   <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
   <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
@@ -405,4 +399,56 @@
 <a name="contenido-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar Contenido Principal como *Módulo*:
 ### Entrar en Joomla! `(/administrator/index.php)`:
+- ir a _Contenido / Gestor de artículos / Añadir nuevo artículo_ y crear un artículo nuevo `Pagina Inicial`.
+- añadir el contenido de `<article class="quienes-somos">..</article>`:
+  ````php
+  <h2>BIENVENIDOS A SU RESTAURANTE</h2>
+  <img src="images/quienes-somos.jpg" alt="¿QUIENES SOMOS?">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptatem incidunt libero non voluptas maiores repellendus, placeat ut ratione! Provident odit perspiciatis maiores eaque soluta quae, beatae ex iusto at ratione! Provident odit perspiciatis maiores eaque soluta quae, beatae ex iusto <br> <a href="#">VER MÁS</a>
+  </p>
+  ````
+- cambiar:
+  ````php
+  <a href="#">
+  ````
+  por
+  ````php
+  <a href="#" class="ver-mas">
+  ````
+- ir a _Menús / Main Menu_ y hacer click en el elemento `Home`:
+  - cambiar _Título_: `Inicio`.
+  - elegir _Tipo de elemento del menú_: `Mostrar un solo artículo`.
+  - elegir _Seleccionar artículo_: `Pagina Inicial`.
+  - en _Opciones_, elegir _Mostrar/Ocultar_, _Sí/No_ según el diseño.
+  - elegir _Visualización de la página / Mostrar el encabezado de la página_: `No`.
+### Editar Fichero `/templates/restaurante/index.php`:
+- cambiar:
+  ````php
+  <h2>BIENVENIDOS A SU RESTAURANTE</h2>
+  <img src="images/quienes-somos.jpg" alt="¿QUIENES SOMOS?">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptatem incidunt libero non voluptas maiores repellendus, placeat ut ratione! Provident odit perspiciatis maiores eaque soluta quae, beatae ex iusto at ratione! Provident odit perspiciatis maiores eaque soluta quae, beatae ex iusto <br> <a href="#">VER MÁS</a>
+  </p>
+  ````
+  por:
+  ````php
+  <jdoc:include type="message" />
+  <jdoc:include type="component" />
+  ````
+### Editar Fichero `/templates/restaurante/css/estilos.css`:
+- cambiar:
+  ````css
+  main article.quienes-somos a {
+  ````
+  por:
+  ````css
+  main article.quienes-somos a.ver-mas {
+  ````
+- cambiar:
+  ````css
+  main article.quienes-somos a:hover {
+  ````
+  por:
+  ````css
+  main article.quienes-somos a.ver-mas:hover {
+  ````
 
