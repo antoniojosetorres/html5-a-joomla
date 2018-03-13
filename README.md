@@ -8,7 +8,6 @@
 - **[Menú Principal como módulo](#menu-mod)**
 - **[Sección Bienvenido como parámetro](#bienvenido-par)**
 - **[Contenido Principal como módulo](#contenido-mod)**
-
 <a name="preparacion"></a>
 ### Preparación:
 - copiar carpeta `restaurante` dentro de `/templates`.
@@ -16,7 +15,6 @@
 - crear `/templates/restaurante/index.html` vacío.
 - copiar `/templates/beez3/template_preview.png` y `template_thumbnail.png` en `/templates/restaurante`.
 - copiar `/templates/beez3/templateDetails.xml` en la carpeta `/templates/restaurante`.
-
 ### Editar Fichero `/templates/restaurante/templateDetails.xml`:
 - cambiar en el bloque `<extension>..</extension>`:
   ````xml
@@ -60,11 +58,9 @@
   <position>presentacion</position>
   <position>lateral</position>
   ````
-
 ### Cambiar Plantilla en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de extensiones / Descubrir_ para instalar la plantilla `restaurante`.
 - ir a _Extensiones / Gestor de plantillas_ para marcar como predeterminada la plantilla `restaurante`.
-
 ### Editar Fichero `/templates/restaurante/index.php`:
 - añadir al comienzo una _línea de seguridad_:
   ````php
@@ -100,7 +96,6 @@
   - ir a _Componentes / JCE Editor / Global Configuration_.
   - en _Formatting & Display / Container Element & Enter Key_: `No Container & Paragraph on Enter`.
   - en _Cleanup & Output / Validate HTML_: `No`.
-
 ### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
@@ -118,17 +113,14 @@
     ````php
     <jdoc:include type="modules" name="logo" style="none" />
     ````
-
 ### Duplicar Módulo *mod_custom* para Sobreescribirlo (Override):
 - crear carpeta `html` en `/templates/restaurante`.
 - copiar `/modules/mod_custom` en `/templates/restaurante/html`.
 - borrar `/templates/restaurante/html/mod_custom/mod_custom.php` y `mod_custom.xml`.
 - copiar `/templates/restaurante/html/mod_custom/tmpl/default.php` en `/templates/restaurante/html/mod_custom/restaurante.php`.
 - borrar la carpeta `/templates/restaurante/html/mod_custom/tmpl`.
-
 ### Editar Fichero `/templates/restaurante/html/mod_custom/restaurante.php`:
 - borrar `<div>` y `</div>` dejando `<?php echo $module->content; ?>` para no insertar `<div class="custom">` en los módulos _HTML personalizado_.
-
 ### Elegir Módulo *mod_custom* Personalizado (override) en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de módulos_.
 - hacer click en el módulo _Logo_.
@@ -144,7 +136,6 @@
     <field name="logo" type="media" label="Logo" description="Inserta tu logo" />  
   </fieldset>
   ````
-
 ### Editar Fichero `/templates/restaurante/index.php`:
 - añadir _variable de aplicación_ `$app` después de la variable `$ruta_p`:
   ````php
@@ -196,7 +187,6 @@
   ````php
   <a href="tel:<?php echo $telefono;?>" class="telefono">
   ````
-
 ### Editar Fichero `/templates/restaurante/templateDetails.xml` para Agrupar Opciones de Plantilla en Backend:
 - añadir `<field>` con el campo `sep1`:
   ````xml
@@ -209,7 +199,6 @@
 - escribir Título: `Caja de busqueda`.
 - elegir Posición: `buscar`.
 - escribir texto del campo: `Buscar...`.
-
 ### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
@@ -221,18 +210,15 @@
   ````php
   <jdoc:include type="modules" name="buscar" style="none" />
   ````
-
 ### Duplicar Módulo *mod_search* para Sobreescribirlo (Override):
 - copiar `/modules/mod_search en /templates/restaurante/html`.
 - borrar `/templates/restaurante/html/mod_search/mod_search.php`, `mod_search.xml` y `helper.php`.
 - copiar `/templates/restaurante/html/mod_search/tmpl/default.php` en `/templates/restaurante/html/mod_search`.
 - renombrar `/templates/restaurante/html/mod_search` como `restaurante.php`.
 - borrar la carpeta `/templates/restaurante/html/mod_search/tmpl`.
-
 ### Editar Fichero `/templates/restaurante/html/mod_search/restaurante.php`:
 - borrar `<div>` y `</div>` dejando `<form...>` para no insertar `<div class="search">` en los módulos _Buscar_.
 - borrar `<label>` y `</label>` dejando `<form...>` para que no aparezca la palabra _Buscar_ delante de la caja de búsqueda.
-
 ### Elegir Módulo *mod_search* Personalizado (override) en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones / Gestor de módulos_.
 - hacer click en el módulo _Caja de busqueda_.
@@ -261,7 +247,6 @@
   <field name="facebook" type="url" label="Facebook" default="https://www.facebook.com"
   description="Inserta tu dirección de Facebook" />
   ````
-
 ### Editar Fichero `/templates/restaurante/index.php`:
 - añadir _variable para google_ `$google`:
   ````php
@@ -308,7 +293,6 @@
 - ir a _Extensiones / Gestor de módulos_ y editar el módulo `Main Menu`.
   - escribir Título: `Menu Principal`.
   - elegir Posición: `menuprincipal`.
-
 ### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
@@ -326,7 +310,6 @@
   ````php
   <jdoc:include type="modules" name="menuprincipal" style="none" />
   ````
-
 ### Editar Fichero `/templates/restaurante/css/estilos.css`:
 - cambiar para modificar el color de la opción de menú seleccionada:
   ````css
@@ -380,7 +363,6 @@
     </figure>
   </div>
   ````
-
 ### Editar Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
@@ -414,7 +396,6 @@
   ````php
   <jdoc:include type="modules" name="bienvenido" style="none" />
   ````
-
 ### Editar Fichero `/templates/restaurante/index.php`:
 - añadir _variable bienvenido_ `$bienvenido`:
   ````php
@@ -422,6 +403,6 @@
   ````
 ---
 <a name="contenido-mod"></a>[ir a Inicio](#inicio)
-### Cambiar Contenido Principal como *Módulo*:
-## Entrar en Joomla! `(/administrator/index.php)`:
+## Cambiar Contenido Principal como *Módulo*:
+### Entrar en Joomla! `(/administrator/index.php)`:
 
