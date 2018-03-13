@@ -1,4 +1,4 @@
-# CÓMO COMVERTIR UNA PLANTILLA HTML5 A UNA PLANTILLA JOOMLA!
+# CÓMO CONVERTIR UNA PLANTILLA HTML5 A UNA PLANTILLA JOOMLA!
 <a name="inicio"></a>
 - **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
 - **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
