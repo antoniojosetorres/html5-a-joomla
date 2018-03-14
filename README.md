@@ -83,7 +83,7 @@
   ````
 - añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`.
 - añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`.
-===
+---
 <a name="logo-mod"></a>
 ## Cómo Cambiar el Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones > Gestor de módulos_ y crear un módulo nuevo de tipo _HTML personalizado_:
@@ -124,7 +124,7 @@
 ### Elegir el Módulo *mod_custom* Personalizado (override) en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones > Gestor de módulos_ y hacer click en el módulo _Logo_:
   - en _Avanzado > Presentación alternativa_, elegir: _---Desde plantilla--- > restaurante_.
-===
+---
 <a name="logo-par"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar el Logo como *Parámetro de Plantilla*:
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
@@ -163,7 +163,7 @@
   ````php
   <img src="<?php echo $logo;>" alt="logo">
   ````
-===
+---
 <a name="telefono-par"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar el Número de Teléfono como *Parámetro de Plantilla*:
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
@@ -189,7 +189,7 @@
   ````xml
   <field name="sep1" type="spacer" label="Opciones de Encabezado" />
   ````
-===
+---
 <a name="buscar-mod"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar la Caja de Búsqueda en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Extensiones > Gestor de módulos_ y crear un módulo nuevo de tipo _Buscar_:
@@ -219,7 +219,7 @@
 ### Elegir el Módulo *mod_search* Personalizado (override) en Joomla! (`/administrator/index.php`):
 - ir a _Extensiones > Gestor de módulos_ y hacer click en el módulo _Caja de busqueda_:
   - en _Avanzado > Presentación alternativa_, elegir: _---Desde plantilla--- > restaurante_.
-===
+---
 <a name="rrss-par"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar las Direcciones de Redes Sociales como *Parámetros de Plantilla*:
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
@@ -279,7 +279,7 @@
   ````php
   <a href="<?php echo $telefono;?>" class="fa fa-facebook">
   ````
-===
+---
 <a name="menu-mod"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar el Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
 - ir a _Contenido > Gestor de categorias > Añadir nueva categoría_ y crear una nueva categoría `Nosotros`.
@@ -334,7 +334,7 @@
   ````php
   <jdoc:include type="modules" name="presentacion" style="none" />
   ````
-===
+---
 <a name="bienvenido-par"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar la Sección Bienvenido como *Parámetro de Plantilla*:
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
@@ -414,7 +414,7 @@
   ````php
   $bienvenido=$this->params->get('bienvenido');
   ````
-===
+---
 <a name="contenido-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar el Contenido Principal como *Módulo*:
 ### Entrar en Joomla! `(/administrator/index.php)`:
@@ -453,12 +453,13 @@
   ````css
   text-transform: uppercase;
   ````
-===
+---
 <a name="mapa-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar el Mapa como *Módulo*:
 > Nota: haciendo uso de un módulo externo llamado **Phoca Maps**.
 
-===
+---
+---
 <!-- por aqui -->
 ### Editar el Fichero `/templates/restaurante/index.php`:
 - cambiar el contenido de `<div class="contenedor">...</div>` de `<section class="presentacion">...</section>`:
@@ -476,4 +477,4 @@
   ````php
   <jdoc:include type="modules" name="presentacion" style="none" />
   ````
-===
+---
