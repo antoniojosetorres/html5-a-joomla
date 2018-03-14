@@ -1,4 +1,4 @@
-# CÓMO CAMBIAR UNA PLANTILLA HTML5 A UNA PLANTILLA JOOMLA!
+# CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA!
 <a name="inicio"></a>
 - **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
 - **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
@@ -9,6 +9,7 @@
 - **[Cómo Cambiar la Presentación como Módulo](#presentacion-mod)**
 - **[Cómo Cambiar la Sección Bienvenido como Parámetro de Plantilla](#bienvenido-par)**
 - **[Cómo Cambiar el Contenido Principal como Módulo](#contenido-mod)**
+- **[Cómo Cambiar el Mapa como Módulo](#mapa-mod)**
 <a name="preparacion"></a>
 ## Preparación Inicial:
 - copiar carpeta `restaurante` dentro de `/templates`.
@@ -316,7 +317,7 @@
 ---
 <a name="presentacion-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar la Presentación como *Módulo*:
-- (haciendo uso de un módulo externo de pago llamado **Layer Slider**).
+> Nota: haciendo uso de un módulo externo de pago llamado **Layer Slider**.
 ### Editar el Fichero `/templates/restaurante/index.php`:
 - cambiar el contenido de `<div class="contenedor">...</div>` de `<section class="presentacion">...</section>`:
   ````php
@@ -413,7 +414,7 @@
   ````php
   $bienvenido=$this->params->get('bienvenido');
   ````
----
+===
 <a name="contenido-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar el Contenido Principal como *Módulo*:
 ### Entrar en Joomla! `(/administrator/index.php)`:
@@ -447,25 +448,32 @@
   <jdoc:include type="message" />
   <jdoc:include type="component" />
   ````
-// Creo que no hace falta
 ### Editar Fichero `/templates/restaurante/css/estilos.css`:
-- cambiar para añadir 
-- cambiar:
+- añadir en el contenido `main article h2 {..}` para poner todos los títulos de los artículos en mayúsculas:
   ````css
-  main article.quienes-somos a {
+  text-transform: uppercase;
+  ````
+===
+<a name="mapa-mod"></a>[ir a Inicio](#inicio)
+### Cambiar el Mapa como *Módulo*:
+> Nota: haciendo uso de un módulo externo llamado **Phoca Maps**.
+===
+===
+
+<!-- por aqui -->
+### Editar el Fichero `/templates/restaurante/index.php`:
+- cambiar el contenido de `<div class="contenedor">...</div>` de `<section class="presentacion">...</section>`:
+  ````php
+  <div class="texto-presentacion">
+    <h1>EL PLACER DE COMER</h1>
+    <h2>VEN  A DISFRUTAR DE LOS MEJORES PLATOS NACIONALES</h2>
+    <a href="#" class="boton-principal">VER NUESTROS PLATOS</a>
+  </div>
+  <div class="images-presentacion">
+    <img alt='Hamburguesa' data-src='<515:images/hamburguesa-chica.png,<770:images/hamburguesa-mediana.png,>771:images/hamburguesa.png' />
+  </div>
   ````
   por:
-  ````css
-  main article.quienes-somos a.ver-mas {
+  ````php
+  <jdoc:include type="modules" name="presentacion" style="none" />
   ````
-- cambiar:
-  ````css
-  main article.quienes-somos a:hover {
-  ````
-  por:
-  ````css
-  main article.quienes-somos a.ver-mas:hover {
-  ````
-//
-para poner todos los titulos de los articulos en mayusculas
-añadir en main article h2 {...}, text-transform: uppercase;
