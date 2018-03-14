@@ -455,11 +455,10 @@
   ````
 ===
 <a name="mapa-mod"></a>[ir a Inicio](#inicio)
-### Cambiar el Mapa como *Módulo*:
+## Cambiar el Mapa como *Módulo*:
 > Nota: haciendo uso de un módulo externo llamado **Phoca Maps**.
-===
-===
 
+===
 <!-- por aqui -->
 ### Editar el Fichero `/templates/restaurante/index.php`:
 - cambiar el contenido de `<div class="contenedor">...</div>` de `<section class="presentacion">...</section>`:
@@ -477,3 +476,4 @@
   ````php
   <jdoc:include type="modules" name="presentacion" style="none" />
   ````
+===
