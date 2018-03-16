@@ -1,12 +1,3 @@
-<div style="column-count:2;">
-  <div style="display: inline-block;">
-    #h1
-  </div>
-  <div style="display: inline-block;">
-    ##h2
-  </div>
-</div>
----
 # CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA!
 ###### por antoniojosetorres
 <a name="inicio"></a>
@@ -24,11 +15,11 @@
 - **[Cómo Usar un Parámetro de Plantilla únicamente en la Página Inicial](#pagina-inicial)**
 <a name="preparacion"></a>
 ## Preparación Inicial:
-- copiar carpeta `restaurante` dentro de `/templates`.
-- renombrar `/templates/restaurante/index.html` como `ìndex.php`.
-- crear `/templates/restaurante/index.html` vacío.
-- copiar `/templates/beez3/template_preview.png` y `template_thumbnail.png` en `/templates/restaurante`.
-- copiar `/templates/beez3/templateDetails.xml` en la carpeta `/templates/restaurante`.
+- copiar la carpeta `restaurante` dentro de la carpeta `/templates`.
+- renombrar el fichero `/templates/restaurante/index.html` como `ìndex.php`.
+- crear el fichero vacío `/templates/restaurante/index.html`.
+- copiar las imágenes `/templates/beez3/template_preview.png` y `template_thumbnail.png` en la carpeta `/templates/restaurante`.
+- copiar el fichero `/templates/beez3/templateDetails.xml` en la carpeta `/templates/restaurante`.
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - cambiar en el bloque `<extension>..</extension>`:
   ````xml
@@ -49,14 +40,14 @@
   <!-- descripción de la plantilla -->
   <description>Plantilla para Restaurante</description>
   ````
-- cambiar en el bloque `<files>..</files>` las carpetas de la plantilla:
+- cambiar las carpetas de la plantilla en el bloque `<files>..</files>`:
   ````xml
   <folder>css</folder>
   <folder>fonts</folder>
   <folder>images</folder>
   <folder>js</folder>
   ````
-- cambiar en el bloque `<files>..</files>` los ficheros de la plantilla:  
+- cambiar los ficheros de la plantilla en el bloque `<files>..</files>`:  
   ````xml
   <filename>index.html</filename>
   <filename>index.php</filename>
@@ -65,7 +56,7 @@
   <filename>template_thumbnail.png</filename>
   <filename>favicon.ico</filename>
   ````
-- cambiar en el bloque `<positions>..</positions>` los nombres de las posiciones de los módulos:
+- cambiar los nombres de las posiciones de los módulos en el bloque `<positions>..</positions>`:
   ````xml
   <position>logo</position>
   <position>buscar</position>
@@ -83,9 +74,9 @@
   ````
 - borrar `<title>Restaurante Maestro</title>` (será generada por Joomla!).
 - borrar `<meta name="description" content="">` (será generada por Joomla!).
-- poner `<script src="js/jquery-2.1.1.min.js"></script>` delante de `</head>`.
-- poner `<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>` delante de `</head>`.
-- añadir `<jdoc:include type="head" />` entre `<script>` y `<link>`.
+- mover `<script src="js/jquery-2.1.1.min.js"></script>` delante de `</head>`.
+- mover `<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>` delante de `</head>`.
+- añadir `<jdoc:include type="head" />` entre `</script>` y `<link>`.
 - añadir _variable de ruta de sitio_ `$ruta_s` delante de `?>`:
   ````php
   $ruta_s=JURI::base();
@@ -94,29 +85,32 @@
   ````php
   $ruta_p=$ruta_s."templates/".$this->template."/";
   ````
+<div class="pull-left">
 - cambiar:
   ````php
-  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/modernizr.min.js"></script>
   ````
+</div>
+<div class="pull-right">
   por:
   ````php
-  <script src="<?php echo $ruta_p; ?>js/jquery-2.1.1.min.js"></script>
+  <script src="<?php echo $ruta_p; ?>js/jquery.min.js"></script>
+  <script src="<?php echo $ruta_p; ?>js/modernizr.min.js"></script>
   ````
-- cambiar:
-  ````php
-  <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-  ````
-  por:
-  ````php
-  <script src="<?php echo $ruta_p; ?>js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-  ````
+</div>
 - cambiar
-		<link rel="stylesheet" href="<?php echo $ruta_p; ?>css/normalize.min.css">
-		<link rel="stylesheet" href="<?php echo $ruta_p; ?>css/estilos.css">
-		<link rel="stylesheet" href="<?php echo $ruta_p; ?>css/font-awesome.min.css">
-
-
-- añadir `<?php echo $ruta_p; ?>` delante de `css` en `<link>`.
+  ````php
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  ````
+  por:
+  ````php
+  <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/normalize.min.css">
+  <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/estilos.css">
+  <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/font-awesome.min.css">
+  ````
 ---
 <a name="logo-mod"></a>
 ## Cómo Cambiar el Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
@@ -528,7 +522,7 @@
   ````
 ---
 <a name="pagina-inicial"></a>[ir a Inicio](#inicio)
-## Cómo Usar un Parámetro de Plantilla únicamente en la Página Inicial:
+## Cómo Usar la Sección Bienvenido solo en la Página Inicial:
 ### Editar el Fichero `/templates/restaurante/index.php`:
 - añadir _variable de menu_ `menu`:
   ````php
@@ -538,4 +532,11 @@
   ````php
   $inicio=$menu->getActive()==$menu->getDefault();
   ````
----
+- añadir delante de `<section class="bienvenidos">` para comprobar que el menú activo es el menú inicial:
+  ````php
+  <?php if($inicio) { ?>
+  ````
+- añadir detrás de `</section>`:
+  ````php
+  <?php } ?>
+  ````
