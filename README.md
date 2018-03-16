@@ -1,4 +1,5 @@
 # CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA!
+#### por antoniojosetorres
 <a name="inicio"></a>
 - **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
 - **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
@@ -11,6 +12,7 @@
 - **[Cómo Cambiar el Contenido Principal como Módulo](#contenido-mod)**
 - **[Cómo Cambiar el Mapa como Módulo](#mapa-mod)**
 - **[Cómo Cambiar el Pie de Página como Parámetro de Plantilla](#pie-par)**
+- **[Cómo Usar un Parámetro de Plantilla únicamente en la Página Inicial](#pagina-inicial)**
 <a name="preparacion"></a>
 ## Preparación Inicial:
 - copiar carpeta `restaurante` dentro de `/templates`.
@@ -481,7 +483,7 @@
   <field name="piepagina" type="text" label="Pie de Página" description="Inserta tu pie de página" />
   ````
 ### Editar el Fichero `/templates/restaurante/index.php`:
-- añadir _variable piepagina_ `$piepagina`:
+- añadir _variable de piepagina_ `$piepagina`:
   ````php
   $piepagina=$this->params->get('piepagina');
   ````
@@ -493,3 +495,16 @@
   ````php
   <small><?php echo $piepagina; ?></small>
   ````
+---
+<a name="pagina-inicial"></a>[ir a Inicio](#inicio)
+## Cómo Usar un Parámetro de Plantilla únicamente en la Página Inicial:
+### Editar el Fichero `/templates/restaurante/index.php`:
+- añadir _variable de menu_ `menu`:
+````php
+  $menu=&JSite::getMenu();
+  ````
+- añadir _variable de pagina inicial_ `inicio`:
+  ````php
+  $inicio=$menu->getActive()==$menu->getDefault();
+  ````
+---
