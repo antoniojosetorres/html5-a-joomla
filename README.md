@@ -1,5 +1,5 @@
 # CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA!
-#### por antoniojosetorres
+##### por antoniojosetorres
 <a name="inicio"></a>
 - **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
 - **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
@@ -86,9 +86,16 @@
   $ruta_p=$ruta_s."templates/".$this->template."/";
   ````
 - cambiar:
+  <div class="pull-left">
   ````php
-  <script src="js/jquery-2.1.1.min.js"></script> *por* <script src="<?php echo $ruta_p; ?>js/jquery-2.1.1.min.js"></script>
+  <script src="js/jquery-2.1.1.min.js"></script>
   ````
+  </div>
+  <div class="pull-right">
+  ````php
+  <script src="<?php echo $ruta_p; ?>js/jquery-2.1.1.min.js"></script>
+  ````
+  </div>
   por:
   ````php
   <script src="<?php echo $ruta_p; ?>js/jquery-2.1.1.min.js"></script>
