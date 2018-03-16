@@ -10,6 +10,7 @@
 - **[Cómo Cambiar la Sección Bienvenido como Parámetro de Plantilla](#bienvenido-par)**
 - **[Cómo Cambiar el Contenido Principal como Módulo](#contenido-mod)**
 - **[Cómo Cambiar el Mapa como Módulo](#mapa-mod)**
+- **[Cómo Cambiar el Pie de Página como Parámetro de Plantilla](#pie-par)**
 <a name="preparacion"></a>
 ## Preparación Inicial:
 - copiar carpeta `restaurante` dentro de `/templates`.
@@ -149,7 +150,7 @@
   ````
 - cambiar:
   ````php
-  <a href="#" class="logo">
+  <a href="#" class="logo"> | <a href="<?php echo $ruta_s;?>" class="logo">
   ````
   por:
   ````php
@@ -187,7 +188,7 @@
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep1` para agrupar las opciones de plantilla en el backend de Joomla!:
   ````xml
-  <field name="sep1" type="spacer" label="Opciones de Encabezado" />
+  <field name="sep1" type="spacer" label="> Opciones de Encabezado" />
   ````
 ---
 <a name="buscar-mod"></a>[ir a Inicio](#inicio)
@@ -225,7 +226,7 @@
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep2`:
   ````xml
-  <field name="sep2" type="spacer" label="Opciones de Redes Sociales" />
+  <field name="sep2" type="spacer" label="> Opciones de Redes Sociales" />
   ````
 - añadir `<field>` con el campo `google`:
   ````xml
@@ -340,7 +341,7 @@
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep3`:
   ````xml
-  <field name="sep3" type="spacer" label="Opciones de Bienvenido" />
+  <field name="sep3" type="spacer" label="> Opciones de Bienvenido" />
   ````
 - añadir `<field>` con el campo `bienvenido`:
   ````xml
@@ -448,7 +449,7 @@
   <jdoc:include type="message" />
   <jdoc:include type="component" />
   ````
-### Editar Fichero `/templates/restaurante/css/estilos.css`:
+### Editar el Fichero `/templates/restaurante/css/estilos.css`:
 - añadir en el contenido `main article h2 {..}` para poner todos los títulos de los artículos en mayúsculas:
   ````css
   text-transform: uppercase;
@@ -457,24 +458,98 @@
 <a name="mapa-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar el Mapa como *Módulo*:
 > Nota: haciendo uso de un módulo externo llamado **Phoca Maps**.
-
----
----
-<!-- por aqui -->
 ### Editar el Fichero `/templates/restaurante/index.php`:
-- cambiar el contenido de `<div class="contenedor">...</div>` de `<section class="presentacion">...</section>`:
+- cambiar el contenido de `<article class="aqui-estamos">...</article>`:
   ````php
-  <div class="texto-presentacion">
-    <h1>EL PLACER DE COMER</h1>
-    <h2>VEN  A DISFRUTAR DE LOS MEJORES PLATOS NACIONALES</h2>
-    <a href="#" class="boton-principal">VER NUESTROS PLATOS</a>
+  <h2>AQUÍ ESTAMOS</h2>
+  <iframe src="https://www.google.com/maps/embed?..." width="100%" height="308" style="border:0"></iframe> 
+  ````
+  por:
+  ````php
+  <jdoc:include type="modules" name="lateral" style="html5" />
+  ````
+> Nota: usar el estilo `html5` para que se ajuste mejor el mapa al diseño.
+---
+<a name="pie-par"></a>[ir a Inicio](#inicio)
+## Cómo Cambiar el Pie de Página como *Parámetros de Plantilla*:
+### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
+- añadir `<field>` con el campo `sep4`:
+  ````xml
+  <field name="sep4" type="spacer" label="> Opciones de Pie de Página" />
+  ````
+- añadir `<field>` con el campo `piepagina`:
+  ````xml
+  <field name="piepagina" type="" label="Pie de Página" description="Inserta tu pie de página" />
+  ````
+### Editar el Fichero `/templates/restaurante/index.php`:
+- añadir _variable piepagina_ `$piepagina`:
+  ````php
+  $piepagina=$this->params->get('piepagina');
+  ````
+
+
+<!-- por aqui -->
+### Entrar en Joomla! (`/administrator/index.php`):
+- ir a _Extensiones > Gestor de plantillas_ y hacer click en el estilo _Restaurante_.
+- ir a _Opciones de Plantilla > Contenido de Bienvenido_ y añadir el contenido de `<div class="contenedor">...</div>` de `<section class="bienvenidos">...</section>`:
+  ````php
+  <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
+  <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
+  <div class="bloque-bienvenidos">
+    <figure>
+      <a href="#">
+        <img src="images/horario-atencion.png" alt="HORARIOS DE ATENCIÓN" />
+        <h3>HORARIOS DE ATENCIÓN</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
+    </figure>
+    <figure>
+      <a href="#">
+        <img src="images/nuestra-carta.png" alt="NUESTRA CARTA" />
+        <h3>NUESTRA CARTA</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
+    </figure>
+    <figure>
+      <a href="#">
+        <img src="images/nuestros-locales.png" alt="NUESTROS LOCALES" />
+        <h3>NUESTROS LOCALES</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption>
+    </figure>
   </div>
-  <div class="images-presentacion">
-    <img alt='Hamburguesa' data-src='<515:images/hamburguesa-chica.png,<770:images/hamburguesa-mediana.png,>771:images/hamburguesa.png' />
+  ````
+### Editar el Fichero `/templates/restaurante/index.php`:
+- cambiar:
+  ````php
+  <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
+  <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
+  <div class="bloque-bienvenidos">
+    <figure>
+      <a href="#">
+        <img src="images/horario-atencion.png" alt="HORARIOS DE ATENCIÓN" />
+        <h3>HORARIOS DE ATENCIÓN</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
+    </figure>
+    <figure>
+      <a href="#">
+        <img src="images/nuestra-carta.png" alt="NUESTRA CARTA" />
+        <h3>NUESTRA CARTA</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
+    </figure>
+    <figure>
+      <a href="#">
+        <img src="images/nuestros-locales.png" alt="NUESTROS LOCALES" />
+        <h3>NUESTROS LOCALES</h3>
+      </a>
+      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption>
+    </figure>
   </div>
   ````
   por:
   ````php
-  <jdoc:include type="modules" name="presentacion" style="none" />
+  <jdoc:include type="modules" name="bienvenido" style="none" />
   ````
 ---
