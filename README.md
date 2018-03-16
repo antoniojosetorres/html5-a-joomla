@@ -1,4 +1,4 @@
-# CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA! <small>por antoniojosetorres</small>
+# CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA! <span style="font-size: 0.5em">por antoniojosetorres</span>
 <a name="inicio"></a>
 - **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
 - **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
@@ -11,7 +11,7 @@
 - **[Cómo Cambiar el Contenido Principal como Módulo](#contenido-mod)**
 - **[Cómo Cambiar el Mapa como Módulo](#mapa-mod)**
 - **[Cómo Cambiar el Pie de Página como Parámetro de Plantilla](#pie-par)**
-- **[Cómo Usar un Parámetro de Plantilla únicamente en la Página Inicial](#pagina-inicial)**
+- **[Cómo Usar la Sección Bienvenido solo en la Página Inicial](#pagina-inicial)**
 <a name="preparacion"></a>
 ## Preparación Inicial:
 - copiar la carpeta `restaurante` dentro de la carpeta `/templates`.
