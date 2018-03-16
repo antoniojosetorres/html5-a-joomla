@@ -58,6 +58,7 @@
   ````
 - cambiar en el bloque `<positions>..</positions>` los nombres de las posiciones de los módulos:
   ````xml
+  <position>logo</position>
   <position>buscar</position>
   <position>menuprincipal</position>
   <position>presentacion</position>
@@ -67,7 +68,7 @@
 - ir a _Extensiones > Gestor de extensiones > Descubrir_ e instalar la plantilla `restaurante`.
 - ir a _Extensiones > Gestor de plantillas_ y marcar la plantilla `restaurante` como _predeterminada_.
 ### Editar el Fichero `/templates/restaurante/index.php`:
-- añadir al comienzo una _línea de seguridad_:
+- añadir _línea de seguridad_ al comienzo del fichero:
   ````php
   <?php defined('_JEXEC') or die; ?>
   ````
@@ -84,8 +85,29 @@
   ````php
   $ruta_p=$ruta_s."templates/".$this->template."/";
   ````
-- añadir `<?php echo $ruta_p;?>` delante de `js` en `<script>`.
-- añadir `<?php echo $ruta_p;?>` delante de `css` en `<link>`.
+- cambiar:
+  ````php
+  <script src="js/jquery-2.1.1.min.js"></script> *por* <script src="<?php echo $ruta_p; ?>js/jquery-2.1.1.min.js"></script>
+  ````
+  por:
+  ````php
+  <script src="<?php echo $ruta_p; ?>js/jquery-2.1.1.min.js"></script>
+  ````
+- cambiar:
+  ````php
+  <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  ````
+  por:
+  ````php
+  <script src="<?php echo $ruta_p; ?>js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  ````
+- cambiar
+		<link rel="stylesheet" href="<?php echo $ruta_p; ?>css/normalize.min.css">
+		<link rel="stylesheet" href="<?php echo $ruta_p; ?>css/estilos.css">
+		<link rel="stylesheet" href="<?php echo $ruta_p; ?>css/font-awesome.min.css">
+
+
+- añadir `<?php echo $ruta_p; ?>` delante de `css` en `<link>`.
 ---
 <a name="logo-mod"></a>
 ## Cómo Cambiar el Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
@@ -156,7 +178,7 @@
   ````
   por:
   ````php
-  <a href="<?php echo $ruta_s;?>" class="logo">
+  <a href="<?php echo $ruta_s; ?>" class="logo">
   ````
 - cambiar:
   ````php
@@ -164,7 +186,7 @@
   ````
   por:
   ````php
-  <img src="<?php echo $logo;>" alt="logo">
+  <img src="<?php echo $logo; ?>" alt="logo">
   ````
 ---
 <a name="telefono-par"></a>[ir a Inicio](#inicio)
@@ -185,7 +207,7 @@
   ````
   por:
   ````php
-  <a href="tel:<?php echo $telefono;?>" class="telefono">
+  <a href="tel:<?php echo $telefono; ?>" class="telefono">
   ````
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep1` para agrupar las opciones de plantilla en el backend de Joomla!:
@@ -264,7 +286,7 @@
   ````
   por:
   ````php
-  <a href="<?php echo $google;?>" class="fa fa-google-plus">
+  <a href="<?php echo $google; ?>" class="fa fa-google-plus">
   ````
 - cambiar:
   ````php
@@ -272,7 +294,7 @@
   ````
   por:
   ````php
-  <a href="<?php echo $twitter;?>" class="fa fa-twitter">
+  <a href="<?php echo $twitter; ?>" class="fa fa-twitter">
   ````
 - cambiar:
   ````php
@@ -280,7 +302,7 @@
   ````
   por:
   ````php
-  <a href="<?php echo $telefono;?>" class="fa fa-facebook">
+  <a href="<?php echo $telefono; ?>" class="fa fa-facebook">
   ````
 ---
 <a name="menu-mod"></a>[ir a Inicio](#inicio)
@@ -500,7 +522,7 @@
 ## Cómo Usar un Parámetro de Plantilla únicamente en la Página Inicial:
 ### Editar el Fichero `/templates/restaurante/index.php`:
 - añadir _variable de menu_ `menu`:
-````php
+  ````php
   $menu=&JSite::getMenu();
   ````
 - añadir _variable de pagina inicial_ `inicio`:
