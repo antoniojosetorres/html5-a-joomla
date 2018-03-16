@@ -74,8 +74,8 @@
   ````
 - borrar `<title>Restaurante Maestro</title>` (será generada por Joomla!).
 - borrar `<meta name="description" content="">` (será generada por Joomla!).
-- mover `<script src="js/jquery-2.1.1.min.js"></script>` delante de `</head>`.
-- mover `<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>` delante de `</head>`.
+- mover `<script src="js/jquery.min.js"></script>` delante de `</head>`.
+- mover `<script src="js/modernizr.min.js"></script>` delante de `</head>`.
 - añadir `<jdoc:include type="head" />` entre `</script>` y `<link>`.
 - añadir _variable de ruta de sitio_ `$ruta_s` delante de `?>`:
   ````php
