@@ -85,20 +85,16 @@
   ````php
   $ruta_p=$ruta_s."templates/".$this->template."/";
   ````
-<div class="pull-left">
 - cambiar:
   ````php
   <script src="js/jquery.min.js"></script>
   <script src="js/modernizr.min.js"></script>
   ````
-</div>
-<div class="pull-right">
   por:
   ````php
   <script src="<?php echo $ruta_p; ?>js/jquery.min.js"></script>
   <script src="<?php echo $ruta_p; ?>js/modernizr.min.js"></script>
   ````
-</div>
 - cambiar
   ````php
   <link rel="stylesheet" href="css/normalize.min.css">
