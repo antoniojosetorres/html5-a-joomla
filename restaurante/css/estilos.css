@@ -1,0 +1,602 @@
+/* ESTILOS GENERALES */
+
+/*--- Carga de Fuentes ---*/
+@font-face {
+	font-family:'MiHelvetica';
+	src: url('../fonts/HelveticaLT-Condensed-Black_gdi.eot');
+	src: url('../fonts/HelveticaLT-Condensed-Black_gdi.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/HelveticaLT-Condensed-Black_gdi.woff') format('woff'),
+	url('../fonts/HelveticaLT-Condensed-Black_gdi.ttf') format('truetype'),
+	url('../fonts/HelveticaLT-Condensed-Black_gdi.svg#HelveticaLT-Condensed-Black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-stretch: normal;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	font:100% /1.5 Arial, sans-serif;
+}
+.contenedor {
+	display: table;
+	clear: both;
+	width: 90%;
+	margin: 0 auto;
+}
+
+/*---------------------
+Estilos para Encabezado
+---------------------*/
+header.encabezado {
+	padding: 1.75em 0;   /* 28-16 */
+}
+.logo {
+	display: block;
+	float: left;
+	width: 19.913043%;   /* 229-1150 */
+}
+.logo img {
+	max-width: 100%;
+}
+.barra-encabezado {
+	float: right;
+	margin-top: 0.9375em;   /* 15-16 */
+}
+.barra-encabezado .telefono {
+	display: inline-block;
+	color: #a49c8f;
+	text-decoration: none;
+	font-size: 1.25em;   /* 20-16 */
+	cursor: default;
+}
+.barra-encabezado .telefono .fa-phone {
+	font-size: 1.75em;   /* 35-20 */
+	vertical-align: middle;
+	padding-right: 0.1em;   /* 2-20 */
+}
+.barra-encabezado form input {
+	background: #f2f2f1;
+	padding: 0.625em;   /* 10-16 */
+	color: #a49c8f;
+	border: 1px solid #dedede; 
+	border-radius: 0.3125em;   /* 5-16 */
+}
+.barra-encabezado form input:hover, .barra-encabezado form input:focus {
+	background: #eaeaea;
+	border: 1px solid #ed8d21;
+	outline: none;
+}
+.barra-encabezado form {
+	display: inline-block;
+	margin: 0 2.5em;   /* 40-16 */
+}
+.barra-encabezado .redes-sociales {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+.barra-encabezado .redes-sociales li {
+	display: inline-block;
+}
+.barra-encabezado .redes-sociales li a {
+	text-decoration: none;
+	color: white;
+	background: #f1af44;
+	display: block;
+	width: 2.25em;   /* 36-16 */
+	height: 2.25em;   /* 36-16 */
+	text-align: center;
+	line-height: 2.25em;   /* 36-16 */
+	border-radius: 50%;
+	-webkit-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.barra-encabezado .redes-sociales li a:hover {
+	background: #a49c8f;
+}
+
+/*-------------------------
+Estilos para Menu Principal
+-------------------------*/
+nav.menu-principal {
+	background: #ee5624;
+}
+nav.menu-principal ul {
+	margin: 0;
+	padding: 0;
+	display:table;
+	width: 100%;
+}
+nav.menu-principal ul li {
+	display:table-cell;
+}
+nav.menu-principal ul li a {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 1.125em;   /* 18-16 */
+	padding: 1.25em 0;   /* 20-16 */
+	border-left: 0.0625em solid #ff7041;   /* 1-16 */
+	border-right: 0.0625em solid #cf3705;   /* 1-16 */
+	-webkit-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+nav.menu-principal ul li:first-child a {
+	border-left: none;
+}
+nav.menu-principal ul li:last-child a {
+	border-right: none;
+}
+nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a {
+	background: #f9845d;
+}
+
+/*-----------------------
+Estilos para Presentacion
+-----------------------*/
+section.presentacion {
+	background: url("../images/fondo-presentacion.jpg") no-repeat center top;
+	background-size: cover;
+}
+section.presentacion .texto-presentacion {
+	float: left;
+	width: 53.217391%;
+	text-align: center;
+}
+section.presentacion .texto-presentacion h1 {
+	font-family: 'MiHelvetica';
+	color: white;
+	text-shadow: 1px 1px 0 #383737;
+	font-size: 3.75em;   /* 60-16 */
+	letter-spacing: 2px;
+	margin: 1.466667em 0 0 0;   /* 88-60 */
+	line-height: 1.1;
+}
+section.presentacion .texto-presentacion h2 {
+	font-family: 'MiHelvetica';
+	color: white;
+	text-shadow: 1px 1px 0 #383737;
+	font-size: 1.5em;   /* 24-16 */
+	margin:0;
+	line-height: 1.1;
+}
+section.presentacion .boton-principal {
+	display: inline-block;
+	color: white;
+	font-size: 1.75em;   /* 28-16 */
+	padding: 0.714286em;   /* 20-28 */
+	border: 0.25em solid rgba(255,255,255,0.4);   /* 5-20 */
+	border-radius: 0.285714em;   /* 8-28 */
+	background-color: #ee5624;
+	background-clip: padding-box;
+	text-decoration: none;
+	margin: 0.714286em 0 0 0;   /* 20-28 */
+	-webkit-transition:all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+section.presentacion .boton-principal:hover {
+	border: 0.25em solid rgba(255,255,255,0.9);   /* 5-20 */
+	background-color: #ca3200;
+}
+section.presentacion .images-presentacion {
+	float: right;
+	width: 43.913043%;
+}
+section.presentacion .images-presentacion img {
+	position: relative;
+	top: 1.25em;   /* 20-16 */
+	max-width: 100%;
+}
+
+/*---------------------
+Estilos para Bienvenido
+---------------------*/
+.bienvenidos h2 {
+	font-family: 'MiHelvetica';
+	color: #ee5624;
+	font-size: 3em;   /* 48-16 */
+	margin: 0.583333em 0 0 0;   /* 28-48 */
+	line-height: 1.1;
+	text-align: center;
+}
+.bienvenidos p {
+	font-family: 'MiHelvetica';
+	color: #5a605b;
+	font-size: 1.75em;   /* 28-16 */
+	margin: 0.285714em 0 0 0;   /* 8-28 */
+	line-height: 1.1;
+	text-align: center;
+}
+.bloque-bienvenidos {
+	display: table;
+	margin: 0.3125em 0 0 0;   /* 5-16 */
+}
+.bloque-bienvenidos figure {
+	display: table-cell;
+	text-align: center;
+	padding: 0.9375em 2.1875em;   /* 15-16 35-16 */
+}
+.bloque-bienvenidos figure a {
+	text-decoration: none;
+	display: block;
+}
+.bloque-bienvenidos figure img {
+	max-width: 100%;
+}
+.bloque-bienvenidos figure a h3:hover {
+	color:#5a605b;
+}
+.bienvenidos h3 {
+	font-family: 'MiHelvetica';
+	color: #ee5624;
+	font-size: 1.5625em;   /* 25-16 */
+	margin: 0.6em 0 0.4em 0;   /* 15-25 10-25 */
+	line-height: 1.1;
+}
+
+/*------------------------------
+Estilos para Contenido Principal
+------------------------------*/
+main {
+	background: #ee5624;
+	color: white;
+	padding-bottom: 3.125em;   /* 50-16 */
+}
+main article.quienes-somos {
+	display: table-cell;
+	width: 65%;
+	padding: 0.625em;   /* 10-16 */
+}
+main article.quienes-somos img {
+	float: left;
+	width: 40%;
+	margin: 0 2% 0 0;
+}
+main article.quienes-somos a {
+	display: inline-block;
+	text-align: center;
+	color: white;
+	font-size: 1.75em;   /* 28-16 */
+	padding:0.357143em 1.071429em;    /* 10-28 30-28 */
+	border: 0.25em solid rgba(255,255,255,0.4);   /* 5-20 */
+	border-radius: 0.285714em;   /* 8-28 */
+	background-color: #ee5624;
+	background-clip: padding-box;
+	text-decoration: none;
+	margin: 0.714286em 0 0 0;   /* 20-28 */
+	-webkit-transition:all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+main article.quienes-somos a:hover {
+	border: 0.25em solid rgba(255,255,255,0.9);   /*5-20*/
+	background-color: #ca3200;
+}
+main article h2 {
+	font-family: 'MiHelvetica';
+	font-size: 2.1875em;   /* 35-16 */
+	text-transform: uppercase;
+}
+main article.aqui-estamos {
+	display: table-cell;
+	width: 35%;
+	padding: 0.625em;   /* 10-16 */
+}
+main article.aqui-estamos iframe {
+	height: 20.5em;   /* 328-16 */
+}
+
+/*------------------------
+Estilos para Pie de Pagina
+------------------------*/
+footer.piedepagina {
+	background: #444444;
+	color: white;
+	text-align: center;
+	padding: 0.625em 0;   /* 10-16 */
+}
+/* Ocultamos menumovil */
+#menumovil {
+	display: none;
+}
+
+/*--------------------------
+MediaQueries a 1200px (75em)
+--------------------------*/
+@media screen and (max-width: 75em) {   /* 1200-16 */
+	section.presentacion .texto-presentacion h1 {
+		font-size: 3em;   /* 48-16 */
+	}
+}   /* fin media 1200px */
+
+/*-----------------------------
+MediaQueries a 990px (61.875em)
+-----------------------------*/
+@media screen and (max-width: 61.875em) {   /* 990-16 */
+	section.presentacion .texto-presentacion h1 {
+		font-size: 2.8125em;   /* 45-16 */
+		margin: 1.125em 0 0 0;   /* 18-16 */
+	}
+}   /* fin media 990px */
+
+/*-----------------------------
+MediaQueries a 966px (60.375em)
+-----------------------------*/
+@media screen and (max-width: 60.375em) {   /* 966-16 */
+	body {
+		font-size: 0.875em;   /* 14-16 */
+	}
+	.contenedor {
+		width: 96%;
+	}
+}   /* fin media 966px */
+
+/*-----------------------------
+MediaQueries a 770px (48.125em)
+-----------------------------*/
+@media screen and (max-width: 48.125em) {   /* 770*16 */
+	section.presentacion {
+		background: url("../images/fondo-presentacion-mediano.jpg") no-repeat center top;
+	}
+	section.presentacion .texto-presentacion h1 {
+		font-size: 2.375em;   /* 38-16 */
+		margin: 0.625em 0 0 0;   /* 10-16 */
+	}
+	section.presentacion .texto-presentacion .boton-principal {
+		font-size: 1.625em;   /* 26-16 */
+		padding: 0.5em;   /* 8-16 */
+	}
+}   /* fin media 770px */
+
+/*-----------------------------
+MediaQueries a 750px (46.875em)
+-----------------------------*/
+@media screen and (max-width: 46.875em) {   /* 750-16 */
+	.contenedor{
+		width: 100%;
+	}
+	main article.quienes-somos {
+		display: block;
+		width: 100%;
+		overflow: hidden;
+	}
+	main article.aqui-estamos {
+		display: block;
+		width: 100%;
+		padding: 0.625em;   /* 10-16 */
+	}
+	nav.menu-principal ul li a {
+		font-size: 1em;   /* 16-16 */
+	}
+	header.encabezado {
+		padding: 1em 0;   /* 16-16 */
+	}
+	.logo {
+		width: 100%;
+		display: block;
+		float: none;
+		text-align:center;
+	}
+	.barra-encabezado {
+		float: none;
+		text-align: center;
+	}
+	nav.menu-principal ul {
+		display: none;
+		background: #222222;
+	}
+	nav.menu-principal ul li {
+		float: none;
+		width: auto;
+		border-top: 1px solid #696565;
+		border-bottom: 1px solid #1e1e1e;
+		display: block;
+	}
+	nav.menu-principal ul li a {
+		background: #3d3c3e;
+		color: white;
+		border-radius: 0.375em;   /* 6-16 */
+		margin: 0; 
+		transition:all 0.5s ease;
+	}
+	nav.menu-principal ul li a:hover {
+		background: #1d1c1d;
+		border-radius: 0;
+	}
+
+	/* estilos menumovil */
+	#menumovil {
+		display: block;
+		background: #ee5624;
+		position: relative;
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		line-height: 3em;   /* 48-16 */
+	}
+	#menumovil:hover {
+		background: #000;
+	}
+	#menumovil:before {
+		content: "";
+		position: absolute;
+		right: 0.75em;   /* 12-16 */
+		top: 0.75em;   /* 12-16 */
+		width: 1.875em;   /* 30-16 */
+		height: 1.3125em;   /* 21-16 */
+		border-top: 0.25em solid white;   /* 4-16 */
+		border-bottom: 0.75em double white;   /* 12-16 */
+		transition:all 0.5s ease;
+	}
+	#menumovil:hover:before {
+		content: "";
+		border-top: 0.25em solid #ff6854;   /* 4-16 */
+		border-bottom: 0.75em double #ff6854;   /* 12-16 */
+	}
+	/* fin estilos menumovil */
+
+	.bloque-bienvenidos figure {
+		display: block;
+		text-align: center;
+		padding: 0.1875em 2.1875em;   /* 3-16 35-16 */
+		overflow: hidden;
+		border-bottom: 0.3125em solid rgba(238,86,36,1);   /* 5-16*/
+	}
+	.bloque-bienvenidos figure img {
+		float: left;
+		margin-right: 2%;
+	}
+	.bienvenidos h3 {
+		text-align: left;
+	}
+	.bienvenidos figcaption{
+		text-align: left;
+	}
+	section.presentacion .texto-presentacion .boton-principal {
+		font-size: 1.4375em;   /* 23-16 */
+	}
+}   /* fin media 750px */
+
+/*----------------------------
+MediaQueries a 550px (34.75em)
+----------------------------*/
+@media screen and (max-width: 34.375em) {   /* 550-16 */
+	.barra-encabezado .telefono {
+		display: block;
+		cursor: pointer;
+	}
+	.barra-encabezado form {
+		display: block;
+		margin: 0.5em 0;   /* 8-16 */
+	}
+	.barra-encabezado .redes-sociales {
+		display: block;
+		padding: 0;
+		margin: 0;
+	}
+	.barra-encabezado form input {
+		width: 96%;
+		padding: 1em;   /* 16-16 */
+	}
+	.barra-encabezado .telefono {
+		display: block;
+		cursor: pointer;
+		background: #ee5624;
+		color: white;
+		padding: 0.5em;   /* 8-16 */
+		border-radius: 0.3125em;   /* 5-16 */
+		width: 96%;
+		font-size: 1.5em;   /* 24-16 */
+		margin: 0 auto;
+		text-shadow: 1px 1px 0 #962c09;
+	}
+	.barra-encabezado .telefono:hover {
+		background: #f0ad15;
+	}
+	section.presentacion .texto-presentacion h1 {
+		font-size: 2.3125em;   /* 37-16 */
+		margin: 0.125em 0 0 0;   /* 2-16 */
+	}
+}   /* fin media 550px */
+
+/*------------------------------
+MediaQueries a 515px (32.1875em)
+------------------------------*/
+@media screen and (max-width: 32.1875em) {   /* 515-16 */
+	section.presentacion {
+		background: url("../images/fondo-presentacion-chica.jpg") no-repeat center top;
+	}
+	section.presentacion .texto-presentacion h2 {
+		display: none;
+	}
+	section.presentacion .texto-presentacion .boton-principal {
+		font-size: 1.125em;   /* 18-16 */
+	}
+	.bloque-bienvenidos figure img {
+		float: none;
+		margin-right: 0;
+	}
+	.bienvenidos h3 {
+		text-align: center;
+	}
+	.bienvenidos figcaption {
+		text-align: center;
+	}
+}   /* fin media 515px */
+
+/*----------------------------
+MediaQueries a 420px (26.25em)
+----------------------------*/
+@media screen and (max-width: 26.25em) {   /* 420-16 */
+	main article.quienes-somos img {
+		float: none;
+		width: 50%;
+		margin: 0 auto;
+		display: block;
+	}
+	main article.quienes-somos p {
+		float: none;
+		width: 96%;
+		margin: 0;
+	}
+	section.presentacion .texto-presentacion .boton-principal {
+		font-size: 0.8125em;   /* 13-16 */
+		margin-bottom: 0.625em;   /* 10-16 */
+	}
+}   /* fin media 420px */
+
+/*-----------------------------
+MediaQueries a 1800px (112.5em)
+-----------------------------*/
+@media screen and (min-width: 112.5em) {   /* 1800-16 */
+	body {
+		font-size: 1.25em;   /* 20-16 */
+	}
+	section.presentacion .texto-presentacion .boton-principal {
+		margin: 0.75em 0 1em;   /* 12-16 16-16 */
+	}
+	section.presentacion .images-presentacion img {
+		top: 3.5em;   /* 56-16 */
+	}
+}   /* fin media 1800px */
+
+/*------------------------------
+MediaQueries a 2100px (131.25em)
+------------------------------*/
+@media screen and (min-width: 131.25em) {   /* 2100-16 */
+	body {
+		font-size: 1.625em;   /* 26-16 */
+	}
+	.contenedor {
+		max-width: 76.923077em;   /* 2000-26 */
+	}
+}   /* fin media 2100px */
+
+/*-------------------------------
+Estilos patra Internet Explorer 8
+-------------------------------*/
+.lt-ie9 .barra-encabezado form input,
+.lt-ie9 .barra-encabezado .redes-sociales li a,
+.lt-ie9 section.presentacion .texto-presentacion .boton-principal,
+.lt-ie9 main article.quienes-somos a {
+	behavior: url(js/pie/PIE.php);
+}
+
+/* Correccion para estilos */
+.lt-ie9 section.presentacion .texto-presentacion .boton-principal {
+	border: 0.25em solid #ffffff;   /* 4-16 */
+	position:relative;
+}
+.lt-ie9 main article.quienes-somos a {
+	border: 0.25em solid #ffffff;   /* 4-16 */
+	position: relative;
+}

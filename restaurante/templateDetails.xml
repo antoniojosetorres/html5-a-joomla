@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="3.1" type="template" client="site">
+	<!-- nombre de carpeta -->
+	<name>restaurante</name>
+	<creationDate>Febrero 2018</creationDate>
+	<author>Antonio Jose Torres</author>
+	<authorEmail>antoniojosetorres@gmail.com</authorEmail>
+	<authorUrl>http://antoniojosetorres.es</authorUrl>
+	<copyright>Copyright (C) 2018 antoniojosetorres. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0</version>
+	<description>Plantilla para Restaurante Maestro</description>
+
+	<files>
+		<!-- carpetas de plantilla -->
+		<folder>css</folder>
+		<folder>fonts</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<!-- ficheros de plantilla -->
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>favicon.ico</filename>
+	</files>
+
+	<!-- posiciones de modulos -->
+	<positions>
+		<!-- logo -->
+		<position>logo</position>
+		<!-- caja busqueda -->
+		<position>buscar</position>
+		<!-- menu principal -->
+		<position>menuprincipal</position>
+		<!-- imagen presentacion -->
+		<position>presentacion</position>
+		<!-- mapa -->
+		<position>lateral</position>
+	</positions>
+
+	<config>
+		<fields name="params">
+			<!-- tab opciones de plantilla -->
+			<fieldset name="opciones" label="Opciones de Plantilla">
+				<!-- separador 1 -->
+				<field name="sep1" type="spacer" label="> Opciones de Encabezado" />
+				<field name="logo" type="media" label="Logo" description="Inserta tu logo" />
+				<field name="telefono" type="tel" label="Telefono" default="658 621 946" description="Inserta tu número de teléfono" />
+				<!-- separador 2 -->
+				<field name="sep2" type="spacer" label="> Opciones de Redes Sociales" />
+				<field name="google" type="url" label="Google+" description="Inserta tu dirección de Google+" default="https://plus.google.com/u/0/+AntonioJoséTorres1967" />
+				<field name="twitter" type="url" label="Twitter" description="Inserta tu dirección de Twitter" default="https://twitter.com/ajtra" />
+				<field name="facebook" type="url" label="Facebook" description="Inserta tu dirección de Facebook" default="https://www.facebook.com/antoniojosetorres" />
+				<!-- separador 3 -->
+				<field name="sep3" type="spacer" label="> Opciones de Bienvenido" />
+				<field name="bienvenido" type="editor" label="Contenido de Bienvenido" filter="safehtml" />
+				<!-- separador 4 -->
+				<field name="sep4" type="spacer" label="> Opciones de Pie de Página" />
+				<field name="piepagina" type="" label="Pie de Página" description="Inserta tu pie de página" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
