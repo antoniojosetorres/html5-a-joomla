@@ -1,3 +1,12 @@
+<div style="column-count:2;">
+  <div style="display: inblock-line;">
+    #h1
+  </div>
+  <div style="display: inblock-line;">
+    ##h2
+  </div>
+</div>
+---
 # CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA!
 ###### por antoniojosetorres
 <a name="inicio"></a>
