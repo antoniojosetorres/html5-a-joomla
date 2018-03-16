@@ -1,4 +1,5 @@
-# CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA! <span style="font-size: 0.5em">por antoniojosetorres</span>
+# CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA!
+> por antoniojosetorres
 <a name="inicio"></a>
 - **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
 - **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
