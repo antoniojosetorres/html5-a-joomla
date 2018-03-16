@@ -86,15 +86,17 @@
   $ruta_p=$ruta_s."templates/".$this->template."/";
   ````
 - cambiar:
-  <div class="pull-left">
+  <div style="column-count: 2;">
+    <div style="display: inline-block;">
   ````php
   <script src="js/jquery-2.1.1.min.js"></script>
   ````
-  </div>
-  <div class="pull-right">
+    </div>
+    <div class="display-inline: block;">
   ````php
   <script src="<?php echo $ruta_p; ?>js/jquery-2.1.1.min.js"></script>
   ````
+    </div>
   </div>
   por:
   ````php
