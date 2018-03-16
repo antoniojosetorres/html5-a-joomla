@@ -54,8 +54,8 @@ $piepagina=$this->params->get('piepagina');
 		<!--[if lt IE 9]> 
 			<script src="<?php echo $ruta_p; ?>js/html5shiv.min.js"></script>
 		<![endif]-->
-		<script src="<?php echo $ruta_p; ?>js/jquery-2.1.1.min.js"></script>
-		<script src="<?php echo $ruta_p; ?>js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<script src="<?php echo $ruta_p; ?>js/jquery.min.js"></script>
+		<script src="<?php echo $ruta_p; ?>js/modernizr.min.js"></script>
 		<jdoc:include type="head" />
 		<link rel="stylesheet" href="<?php echo $ruta_p; ?>css/normalize.min.css">
 		<link rel="stylesheet" href="<?php echo $ruta_p; ?>css/estilos.css">
