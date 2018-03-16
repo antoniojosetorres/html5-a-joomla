@@ -1,5 +1,4 @@
-# CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA!
-###### por antoniojosetorres
+# CÓMO CAMBIAR UNA PLANTILLA: DE HTML5 A JOOMLA! <small>por antoniojosetorres</small>
 <a name="inicio"></a>
 - **[Cómo Cambiar el Logo como Módulo](#logo-mod)**
 - **[Cómo Cambiar el Logo como Parámetro de Plantilla](#logo-par)**
@@ -90,23 +89,23 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/modernizr.min.js"></script>
   ````
-  por:
-  ````php
-  <script src="<?php echo $ruta_p; ?>js/jquery.min.js"></script>
-  <script src="<?php echo $ruta_p; ?>js/modernizr.min.js"></script>
-  ````
-- cambiar
+  - por:
+    ````php
+    <script src="<?php echo $ruta_p; ?>js/jquery.min.js"></script>
+    <script src="<?php echo $ruta_p; ?>js/modernizr.min.js"></script>
+    ````
+- cambiar:
   ````php
   <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   ````
-  por:
-  ````php
-  <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/normalize.min.css">
-  <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/estilos.css">
-  <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/font-awesome.min.css">
-  ````
+  - por:
+    ````php
+    <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/normalize.min.css">
+    <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/estilos.css">
+    <link rel="stylesheet" href="<?php echo $ruta_p; ?>css/font-awesome.min.css">
+    ````
 ---
 <a name="logo-mod"></a>
 ## Cómo Cambiar el Logo en Joomla! (`/administrator/index.php`) como *Módulo*:
@@ -125,7 +124,7 @@
   ````php
   <a href="#" class="logo">
   ````
-  por:
+  - por:
     ````php
     <a href="<?php echo $ruta_s; ?>" class="logo">
     ````
@@ -133,7 +132,7 @@
   ````php
   <img src="images/logo.png" alt="logo">
   ````
-  por:
+  - por:
     ````php
     <jdoc:include type="modules" name="logo" style="none" />
     ````
@@ -175,18 +174,18 @@
   ````php
   <a href="#" class="logo">
   ````
-  por:
-  ````php
-  <a href="<?php echo $ruta_s; ?>" class="logo">
-  ````
+  - por:
+    ````php
+    <a href="<?php echo $ruta_s; ?>" class="logo">
+    ````
 - cambiar:
   ````php
   <img src="images/logo.png" alt="logo">
   ````
-  por:
-  ````php
-  <img src="<?php echo $logo; ?>" alt="logo">
-  ````
+  - por:
+    ````php
+    <img src="<?php echo $logo; ?>" alt="logo">
+    ````
 ---
 <a name="telefono-par"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar el Número de Teléfono como *Parámetro de Plantilla*:
@@ -204,10 +203,10 @@
   ````php
   <a href="tel:666 123 456" class="telefono">
   ````
-  por:
-  ````php
-  <a href="tel:<?php echo $telefono; ?>" class="telefono">
-  ````
+  - por:
+    ````php
+    <a href="tel:<?php echo $telefono; ?>" class="telefono">
+    ````
 ### Editar el Fichero `/templates/restaurante/templateDetails.xml`:
 - añadir `<field>` con el campo `sep1` para agrupar las opciones de plantilla en el backend de Joomla!:
   ````xml
@@ -227,10 +226,10 @@
     <input type="text" name="buscar" placeholder="Buscar…">
   </form>
   ````
-  por:
-  ````php
-  <jdoc:include type="modules" name="buscar" style="none" />
-  ````
+  - por:
+    ````php
+    <jdoc:include type="modules" name="buscar" style="none" />
+    ````
 ### Duplicar el Módulo *mod_search* para Sobreescribirlo (Override):
 - copiar `/modules/mod_search en /templates/restaurante/html`.
 - borrar `/templates/restaurante/html/mod_search/mod_search.php`, `mod_search.xml` y `helper.php`.
@@ -267,42 +266,24 @@
   description="Inserta tu dirección de Facebook" />
   ````
 ### Editar el Fichero `/templates/restaurante/index.php`:
-- añadir _variable para google_ `$google`:
+- añadir _variable para google_ `$google`, _variable para twitter_ `$twitter` y _variable para facebook_ `facebook`:
   ````php
   $google=$this->params->get('google');
-  ````
-- añadir _variable para twitter_ `$twitter`:
-  ````php
   $twitter=$this->params->get('twitter');
-  ````
-- añadir _variable para facebook_ `$facebook`:
-  ````php
   $facebook=$this->params->get('facebook');
   ````
 - cambiar:
   ````php
   <a href="#" class="fa fa-google-plus">
-  ````
-  por:
-  ````php
-  <a href="<?php echo $google; ?>" class="fa fa-google-plus">
-  ````
-- cambiar:
-  ````php
   <a href="#" class="fa fa-twitter">
-  ````
-  por:
-  ````php
-  <a href="<?php echo $twitter; ?>" class="fa fa-twitter">
-  ````
-- cambiar:
-  ````php
   <a href="#" class="fa fa-facebook">
   ````
-  por:
-  ````php
-  <a href="<?php echo $telefono; ?>" class="fa fa-facebook">
-  ````
+  - por:
+    ````php
+    <a href="<?php echo $google; ?>" class="fa fa-google-plus">
+    <a href="<?php echo $twitter; ?>" class="fa fa-twitter">
+    <a href="<?php echo $telefono; ?>" class="fa fa-facebook">    
+    ````
 ---
 <a name="menu-mod"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar el Menú Principal en Joomla! (`/administrator/index.php`) como *Módulo*:
@@ -325,19 +306,19 @@
     <li><a href="#">Blog</a></li>
   </ul>
   ````
-  por:
-  ````php
-  <jdoc:include type="modules" name="menuprincipal" style="none" />
-  ````
+  - por:
+    ````php
+    <jdoc:include type="modules" name="menuprincipal" style="none" />
+    ````
 ### Editar el Fichero `/templates/restaurante/css/estilos.css`:
 - cambiar para modificar el color de la opción de menú seleccionada:
   ````css
   nav.menu-principal ul li a:hover {
   ````
-  por
-  ````css
-  nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a {
-  ````
+  - por:
+    ````css
+    nav.menu-principal ul li a:hover, nav.menu-principal ul li:active a {
+    ````
 ---
 <a name="presentacion-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar la Presentación como *Módulo*:
@@ -354,10 +335,10 @@
     <img alt='Hamburguesa' data-src='<515:images/hamburguesa-chica.png,<770:images/hamburguesa-mediana.png,>771:images/hamburguesa.png' />
   </div>
   ````
-  por:
-  ````php
-  <jdoc:include type="modules" name="presentacion" style="none" />
-  ````
+  - por:
+    ````php
+    <jdoc:include type="modules" name="presentacion" style="none" />
+    ````
 ---
 <a name="bienvenido-par"></a>[ir a Inicio](#inicio)
 ## Cómo Cambiar la Sección Bienvenido como *Parámetro de Plantilla*:
@@ -433,10 +414,10 @@
     </figure>
   </div>
   ````
-  por:
-  ````php
-  <jdoc:include type="modules" name="bienvenido" style="none" />
-  ````
+  - por:
+    ````php
+    <jdoc:include type="modules" name="bienvenido" style="none" />
+    ````
 ---
 <a name="contenido-mod"></a>[ir a Inicio](#inicio)
 ## Cambiar el Contenido Principal como *Módulo*:
@@ -466,11 +447,11 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptatem incidunt libero non voluptas maiores repellendus, placeat ut ratione! Provident odit perspiciatis maiores eaque soluta quae, beatae ex iusto at ratione! Provident odit perspiciatis maiores eaque soluta quae, beatae ex iusto <br> <a href="#">VER MÁS</a>
   </p>
   ````
-  por:
-  ````php
-  <jdoc:include type="message" />
-  <jdoc:include type="component" />
-  ````
+  - por:
+    ````php
+    <jdoc:include type="message" />
+    <jdoc:include type="component" />
+    ````
 ### Editar el Fichero `/templates/restaurante/css/estilos.css`:
 - añadir en el contenido `main article h2 {..}` para poner todos los títulos de los artículos en mayúsculas:
   ````css
@@ -486,10 +467,10 @@
   <h2>AQUÍ ESTAMOS</h2>
   <iframe src="https://www.google.com/maps/embed?..." width="100%" height="308" style="border:0"></iframe> 
   ````
-  por:
-  ````php
-  <jdoc:include type="modules" name="lateral" style="html5" />
-  ````
+  - por:
+    ````php
+    <jdoc:include type="modules" name="lateral" style="html5" />
+    ````
 > Nota: usar el estilo `html5` para que se ajuste mejor el mapa al diseño.
 ---
 <a name="pie-par"></a>[ir a Inicio](#inicio)
@@ -512,20 +493,17 @@
   ````php
   <small> Copyright © 2014 Restaurante Maestro </small>
   ````
-  por:
-  ````php
-  <small><?php echo $piepagina; ?></small>
-  ````
+  - por:
+    ````php
+    <small><?php echo $piepagina; ?></small>
+    ````
 ---
 <a name="pagina-inicial"></a>[ir a Inicio](#inicio)
 ## Cómo Usar la Sección Bienvenido solo en la Página Inicial:
 ### Editar el Fichero `/templates/restaurante/index.php`:
-- añadir _variable de menu_ `menu`:
+- añadir _variable de menu_ `menu` y _variable de pagina inicial_ `inicio`:
   ````php
   $menu=&JSite::getMenu();
-  ````
-- añadir _variable de pagina inicial_ `inicio`:
-  ````php
   $inicio=$menu->getActive()==$menu->getDefault();
   ````
 - añadir delante de `<section class="bienvenidos">` para comprobar que el menú activo es el menú inicial:
