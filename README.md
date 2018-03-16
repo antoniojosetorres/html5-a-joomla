@@ -150,7 +150,7 @@
   ````
 - cambiar:
   ````php
-  <a href="#" class="logo"> | <a href="<?php echo $ruta_s;?>" class="logo">
+  <a href="#" class="logo">
   ````
   por:
   ````php
@@ -378,6 +378,10 @@
   </div>
   ````
 ### Editar el Fichero `/templates/restaurante/index.php`:
+- añadir _variable bienvenido_ `$bienvenido`:
+  ````php
+  $bienvenido=$this->params->get('bienvenido');
+  ````
 - cambiar:
   ````php
   <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
@@ -409,11 +413,6 @@
   por:
   ````php
   <jdoc:include type="modules" name="bienvenido" style="none" />
-  ````
-### Editar el Fichero `/templates/restaurante/index.php`:
-- añadir _variable bienvenido_ `$bienvenido`:
-  ````php
-  $bienvenido=$this->params->get('bienvenido');
   ````
 ---
 <a name="contenido-mod"></a>[ir a Inicio](#inicio)
@@ -479,77 +478,18 @@
   ````
 - añadir `<field>` con el campo `piepagina`:
   ````xml
-  <field name="piepagina" type="" label="Pie de Página" description="Inserta tu pie de página" />
+  <field name="piepagina" type="text" label="Pie de Página" description="Inserta tu pie de página" />
   ````
 ### Editar el Fichero `/templates/restaurante/index.php`:
 - añadir _variable piepagina_ `$piepagina`:
   ````php
   $piepagina=$this->params->get('piepagina');
   ````
-
-
-<!-- por aqui -->
-### Entrar en Joomla! (`/administrator/index.php`):
-- ir a _Extensiones > Gestor de plantillas_ y hacer click en el estilo _Restaurante_.
-- ir a _Opciones de Plantilla > Contenido de Bienvenido_ y añadir el contenido de `<div class="contenedor">...</div>` de `<section class="bienvenidos">...</section>`:
-  ````php
-  <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
-  <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
-  <div class="bloque-bienvenidos">
-    <figure>
-      <a href="#">
-        <img src="images/horario-atencion.png" alt="HORARIOS DE ATENCIÓN" />
-        <h3>HORARIOS DE ATENCIÓN</h3>
-      </a>
-      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
-    </figure>
-    <figure>
-      <a href="#">
-        <img src="images/nuestra-carta.png" alt="NUESTRA CARTA" />
-        <h3>NUESTRA CARTA</h3>
-      </a>
-      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
-    </figure>
-    <figure>
-      <a href="#">
-        <img src="images/nuestros-locales.png" alt="NUESTROS LOCALES" />
-        <h3>NUESTROS LOCALES</h3>
-      </a>
-      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption>
-    </figure>
-  </div>
-  ````
-### Editar el Fichero `/templates/restaurante/index.php`:
 - cambiar:
   ````php
-  <h2>BIENVENIDO AL RESTAURANTE MAESTRO</h2>
-  <p>TE INVITAMOS A CONOCER MÁS DE NOSOTROS</p>
-  <div class="bloque-bienvenidos">
-    <figure>
-      <a href="#">
-        <img src="images/horario-atencion.png" alt="HORARIOS DE ATENCIÓN" />
-        <h3>HORARIOS DE ATENCIÓN</h3>
-      </a>
-      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
-    </figure>
-    <figure>
-      <a href="#">
-        <img src="images/nuestra-carta.png" alt="NUESTRA CARTA" />
-        <h3>NUESTRA CARTA</h3>
-      </a>
-      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id.</figcaption>
-    </figure>
-    <figure>
-      <a href="#">
-        <img src="images/nuestros-locales.png" alt="NUESTROS LOCALES" />
-        <h3>NUESTROS LOCALES</h3>
-      </a>
-      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sit corrupti aperiam illo nam esse ratione, possimus sint dolores numquam libero architecto voluptates quae quam dolor incidunt veniam accusantium id. </figcaption>
-    </figure>
-  </div>
+  <small> Copyright © 2014 Restaurante Maestro </small>
   ````
   por:
   ````php
-  <jdoc:include type="modules" name="bienvenido" style="none" />
+  <small><?php echo $piepagina; ?></small>
   ````
----
