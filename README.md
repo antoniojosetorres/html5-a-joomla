@@ -1,8 +1,8 @@
 <div style="column-count:2;">
-  <div style="display: inblock-line;">
+  <div style="display: inline-block;">
     #h1
   </div>
-  <div style="display: inblock-line;">
+  <div style="display: inline-block;">
     ##h2
   </div>
 </div>
